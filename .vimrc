@@ -1,14 +1,14 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
 
 
 """"""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'               " Plugin manager
 Plugin 'scrooloose/nerdtree'                " File explorer
@@ -50,74 +50,74 @@ colorscheme onedark                 " Set the syntax to One Dark
 let g:airline_theme = 'onedark'     " Set the Airline theme to One Dark
 let g:airline_powerline_fonts = 1   " Enable Airline Powerline fonts
 
+" Ctrlp
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|target|dist)|(\.(swp|ico|git|svn))$'
+
+" NERDTree
+let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
+let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
+
 " Tabline
 let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
 let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
 
-" Statusline
-set noshowmode                      " Hide the default mode indicator"
-set showcmd                         " Show (partial) commands in statusline
-set laststatus=2                    " Always show the statusline
-
-" Line numbers
-set number                          " Show line numbers
-set relativenumber                  " Use relative numbers
-
-set scrolloff=3                     " Always keep 3 lines above/below the curser
-
-" Search
-set ignorecase                      " Ignore case in search patterns
-set smartcase                       " Don't ignore case if pattern has uppercase
-set incsearch                       " Show live search results while typing
-set hlsearch                        " Highlight all matches for previous search
-
+" Insert
 set showmatch                       " Briefly show matching bracket on insert
 
-" Tabs
-set tabstop=4                       " Use 4 spaces for tabs
-set shiftwidth=4                    " Use 4 spaces for auto (auto)indent
-set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
-set expandtab                       " Use spaces when tab is inserted
+" Accessibility
+set mouse=a                         " Allow the use of the mouse
+set clipboard=unnamed               " Use the macOS clipboard
 
 " Buffers
 set hidden                          " Hide buffers instead of unloading
 set autoread                        " Automatically refresh unedited changed files
 
+" Command line
+set wildmenu                        " Enable command line completion
+set wildmode=longest,full           " 1 longest common string, 2 next full match
+
+" Folding
+set foldenable                      " Close folds by default
+set foldmethod=indent               " Fold based on indentation
+
 " Splits
 set splitright                      " Open vertical splits on the right
 set splitbelow                      " Open horizontal splits on the bottom
 
-" Folding
-set foldmethod=indent               " Fold based on indentation
-set foldenable                      " Close folds by default
+" Backup
+set undodir=~/.vim/undo//           " Where to store undo files
+set directory=~/.vim/swap//         " Where to store swap files
+set backupdir=~/.vim/backup//       " Where to store backup files
 
-" Command-line
-set wildmenu                        " Enable command-line completion"
-set wildmode=longest,full           " 1 longest common string, 2 next full match
+" Lines
+set number                          " Show line numbers
+set scrolloff=3                     " Always keep 3 lines above/below the curser
+set relativenumber                  " Use relative numbers
 
-" Ctrlp
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|target|dist)|(\.(swp|ico|git|svn))$'
+" Search
+set hlsearch                        " Highlight all matches for previous search
+set incsearch                       " Show live search results while typing
+set smartcase                       " Don't ignore case if pattern has uppercase
+set ignorecase                      " Ignore case in search patterns
 
-" NERDTree
-let NERDTreeShowHidden = 1          " Show hidden files in NERDTree
-let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
+" Statusline
+set showcmd                         " Show (partial) commands in statusline
+set noshowmode                      " Hide the default mode indicator
+set laststatus=2                    " Always show the statusline
 
-" Accessibility
-set clipboard=unnamed               " Use the macOS clipboard
-set mouse=a                         " Allow the use of the mouse for scrolling
+" Tabs
+set expandtab                       " Use spaces when tab is inserted
+set tabstop=4                       " Use 4 spaces for tabs
+set shiftwidth=4                    " Use 4 spaces for auto (auto)indent
+set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
 
 " Performance
-set notimeout                       " Do not time out mappings
-set ttimeout                        " Do time out key codes
-set ttimeoutlen=10                  " Wait 10 ms for a mapping to complete
 set ttyfast                         " Indicate a fast terminal connection
+set ttimeout                        " Do time out key codes
+set notimeout                       " Do not time out mappings
 set lazyredraw                      " No redrawing during macros/registers
 set synmaxcol=800                   " Don't highlight lines after column 800
-
-" Backup
-set backupdir=~/.vim/backup//       " Where to store backup files
-set directory=~/.vim/swap//         " Where to store swap files
-set undodir=~/.vim/undo//           " Where to store undo files
+set ttimeoutlen=10                  " Wait 10 ms for a mapping to complete
 
 
 
@@ -145,13 +145,8 @@ autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
 let mapleader = '\'
 nmap <space> \
 
-" Open ~/.vimrc in a vertically split window, and source it
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" Open ~/.tmux.conf in a vertically split window, and source it
-nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
-nnoremap <leader>st :!tmux source-file ~/.tmux.conf<cr><cr>
+" Toggle NERDTree
+nnoremap <leader>k :NERDTreeToggle<cr>
 
 " Tab line mappings from Airline
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -165,6 +160,24 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
+
+" Reselect last inserted text
+nnoremap gp `[v`]
+
+" Hide search results
+nnoremap <leader>n :noh<cr>
+
+" Faster write/quit
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+
+" Open ~/.vimrc in a vertically split window, and source it
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Open ~/.tmux.conf in a vertically split window, and source it
+nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
+nnoremap <leader>st :!tmux source-file ~/.tmux.conf<cr><cr>
 
 " Use ctrl-[hjkl] to move between split panes
 nnoremap <C-h> <C-w><C-h>
@@ -183,16 +196,3 @@ nnoremap [w :vertical resize -5<cr>
 nnoremap ]w :vertical resize +5<cr>
 nnoremap [h :resize -5<cr>
 nnoremap ]h :resize +5<cr>
-
-" Faster write/quit
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
-
-" Toggle NERDTree
-nnoremap <leader>k :NERDTreeToggle<cr>
-
-" Hide search results
-nnoremap <leader>n :noh<cr>
-
-" Reselect last inserted text
-nnoremap gp `[v`]
