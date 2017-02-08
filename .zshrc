@@ -25,6 +25,7 @@ alias zshconfig="vim ~/.zshrc"      # Open .zshrc
 alias ohmyzsh="vim ~/.oh-my-zsh"    # Open .oh-my-zsh
 
 # Commands
+alias dev="cd ~/Development"        # Go to the Development directory
 eval "$(thefuck --alias fuck)"      # Natural autocorrect
 alias tinker="php artisan tinker"   # Start a tinker session
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
