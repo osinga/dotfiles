@@ -42,6 +42,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
 
 # Terminal
+export EDITOR=/usr/local/bin/vim    # Set the default editor
+export VISUAL="$EDITOR"             # Set the default editor
 export CLICOLOR=1                   # Turn colors on
 export LSCOLORS=GxFxCxDxBxegedabagaced  # Customize the colors
 
