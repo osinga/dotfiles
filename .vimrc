@@ -33,6 +33,7 @@ Plugin 'tpope/vim-repeat'                   " Repeat plugin mappings
 Plugin 'valloric/youcompleteme'             " Code completion
 Plugin 'tpope/vim-unimpaired'               " Complementary mappings
 Plugin 'mtth/scratch.vim'                   " Scratch window
+Plugin 'junegunn/vim-easy-align'            " Align text
 
 call vundle#end()
 
@@ -166,6 +167,10 @@ nnoremap gp `[v`]
 
 " Hide search results
 nnoremap <leader>n :noh<cr>
+
+" Start EasyAlign in normal mode and visual mode
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Faster write/quit
 nnoremap <leader>w :w<cr>
