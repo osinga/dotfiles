@@ -23,7 +23,6 @@ Plugin 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
 Plugin 'joshdick/onedark.vim'               " One Dark theme
 Plugin 'jiangmiao/auto-pairs'               " Auto close brackets etc.
 Plugin 'sheerun/vim-polyglot'               " Collection of sytaxes
-Plugin 'posva/vim-vue'                      " Vue syntax
 Plugin 'mattn/emmet-vim'                    " Emmet
 Plugin 'scrooloose/nerdcommenter'           " Easy commenting
 Plugin 'airblade/vim-gitgutter'             " Show git status in gutter
