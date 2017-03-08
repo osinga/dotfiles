@@ -45,10 +45,22 @@ call vundle#end()
 filetype plugin indent on
 
 " Theme
-syntax enable                       " Enable syntax highlighting
-colorscheme onedark                 " Set the syntax to One Dark
-let g:airline_theme = 'onedark'     " Set the Airline theme to One Dark
-let g:airline_powerline_fonts = 1   " Enable Airline Powerline fonts
+syntax enable                           " Enable syntax highlighting
+
+if (has("autocmd") && !has("gui_running"))
+    " Remove the background in the Terminal
+    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
+else
+    " Set the font to use in the GUI
+    set guifont=Roboto\ Mono\ Light\ for\ Powerline:h12
+end
+
+colorscheme onedark                     " Set the syntax to One Dark
+
+let g:airline_theme = 'onedark'         " Set the Airline theme to One Dark
+let g:airline_powerline_fonts = 1       " Enable Airline Powerline fonts
+let g:airline_skip_empty_sections = 1   " Do not show empty sections
 
 " Ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|target|dist)|(\.(swp|ico|git|svn))$'
