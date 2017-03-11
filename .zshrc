@@ -27,7 +27,14 @@ alias ohmyzsh="vim ~/.oh-my-zsh"    # Open .oh-my-zsh
 # Commands
 alias dev="cd ~/Development"        # Go to the Development directory
 alias tinker="php artisan tinker"   # Start a tinker session
+
+# Direct access to the Dotfiles repository
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+# Display a random quote with a random animal with pretty colors
+function surprise() {
+    fortune -a | cowsay -n -f $(ls /usr/local/Cellar/cowsay/3.04/share/cows/*.cow | gshuf -n1) | lolcat
+}
 
 
 
