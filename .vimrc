@@ -33,6 +33,7 @@ Plugin 'valloric/youcompleteme'             " Code completion
 Plugin 'tpope/vim-unimpaired'               " Complementary mappings
 Plugin 'mtth/scratch.vim'                   " Scratch window
 Plugin 'junegunn/vim-easy-align'            " Align text
+Plugin 'ap/vim-css-color'                   " Color keyword highlighting
 
 call vundle#end()
 
