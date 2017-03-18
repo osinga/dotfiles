@@ -2,9 +2,9 @@ export ZSH=/Users/Osinga/.oh-my-zsh
 
 
 
-####################################
-# zsh
-####################################
+################################################################################
+# Zsh                                                                          #
+################################################################################
 
 # Plugins
 plugins=(git nyan zsh-syntax-highlighting)
@@ -16,9 +16,9 @@ DISABLE_AUTO_TITLE='true'           # Disable auto-setting the terminal title
 
 
 
-####################################
-# Aliases
-####################################
+################################################################################
+# Aliases                                                                      #
+################################################################################
 
 # Go to the Development directory
 alias dev='cd ~/Development'
@@ -33,14 +33,15 @@ function surprise() {
 
 
 
-####################################
-# Export
-####################################
+################################################################################
+# Export                                                                       #
+################################################################################
 
 # Paths
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
+export PATH=/usr/local/opt/curl/bin:$PATH
 
 # Terminal
 export EDITOR=/usr/local/bin/vim    # Set the default editor
@@ -50,8 +51,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced  # Customize the colors
 
 
 
-####################################
-# Source
-####################################
+################################################################################
+# Source                                                                       #
+################################################################################
 
 source $ZSH/oh-my-zsh.sh
