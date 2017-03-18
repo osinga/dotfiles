@@ -26,6 +26,17 @@ alias dev='cd ~/Development'
 # Direct access to the Dotfiles repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+
+
+################################################################################
+# Functions                                                                    #
+################################################################################
+
+# Open the provided man page as a PDF in Preview
+function manpdf() {
+     man -t ${1} | open -f -a /Applications/Preview.app
+}
+
 # Display a random quote with a random animal with pretty colors
 function surprise() {
     fortune -a | cowsay -n -f $(ls /usr/local/Cellar/cowsay/3.04/share/cows/*.cow | gshuf -n1) | lolcat
