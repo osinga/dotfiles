@@ -11,7 +11,6 @@ plugins=(git nyan zsh-syntax-highlighting)
 
 # Settings
 ZSH_THEME='osinga'                  # Set the terminal theme
-ENABLE_CORRECTION='true'            # Enable command auto-correction
 DISABLE_AUTO_TITLE='true'           # Disable auto-setting the terminal title
 
 
