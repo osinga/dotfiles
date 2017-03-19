@@ -11,3 +11,4 @@ xcode-select --install              # Install the Xcode command line tools
 # Specific
 source brew.sh                      # Install Homebrew and related components
 source node.sh                      # Update npm and install global packages
+source macos.sh                     # Set macOS specific settings
