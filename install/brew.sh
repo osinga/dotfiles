@@ -72,6 +72,18 @@ brew cask install transmission      # Transmission
 brew cask install transmit          # Transmit
 brew cask install vlc               # VLC
 
+
+
+################################################################################
+# Fonts                                                                        #
+################################################################################
+
+# Setup
+brew tap caskroom/fonts             # Tap Homebrew Fonts
+
+# Install
+brew cask install font-roboto-mono-for-powerline    # Roboto Mono for Powerline
+
 # Cleanup
 brew cask cleanup                   # Remove cached downloads and tracker symlinks
 
@@ -86,15 +98,3 @@ brew tap homebrew/services          # Tap Homebrew Services
 
 # Start
 brew services start mongodb         # MongoDB
-
-
-
-################################################################################
-# Fonts                                                                        #
-################################################################################
-
-# Setup
-brew tap caskroom/fonts             # Tap Homebrew Fonts
-
-# Install
-brew cask install font-roboto-mono-for-powerline    # Roboto Mono for Powerline
