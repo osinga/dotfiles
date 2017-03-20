@@ -163,10 +163,50 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true
 # Hide the line marks
 defaults write com.apple.Terminal ShowLineMarks -bool false
 
+# Set zsh as the default shell
+echo $(which zsh) >> /etc/shells
+chsh -s $(which zsh)
+
+# Set my custom theme as the default
+osascript <<EOD
+tell application "Terminal"
+	local InitiallyOpenedWindows
+	local AllOpenedWindows
+	local WindowID
+
+	set ThemeName to "Osinga"
+
+	-- Get the IDs of all open Terminal windows
+	set InitiallyOpenedWindows to id of every window
+
+	-- Add the custom theme
+	do shell script "open '$HOME/install/" & ThemeName & ".terminal'"
+
+	-- Wait to ensure the theme has been hadded
+	delay 1
+
+	-- Set the default Terminal theme
+	set default settings to settings set ThemeName
+
+	-- Get the IDs of all open Terminal windows
+	set AllOpenedWindows to id of every window
+
+	repeat with WindowID in AllOpenedWindows
+		if InitiallyOpenedWindows does not contain WindowID then
+			-- Close the aditionally opened windows
+			close (every window whose id is WindowID)
+		else
+			-- Change the initially opened window's theme
+			set current settings of tabs of (every window whose id is WindowID) to settings set ThemeName
+		end if
+	end repeat
+end tell
+EOD
+
 
 
 ################################################################################
-# TextEdit								                                       #
+# TextEdit                                                                     #
 ################################################################################
 
 # Use plain text mode for new TextEdit documents
@@ -216,6 +256,21 @@ defaults write org.m0k.Transmission WarningDonate -bool false
 
 # Hide the legal disclaimer
 defaults write org.m0k.Transmission WarningLegal -bool false
+
+
+
+################################################################################
+# Vim                                                                          #
+################################################################################
+
+# Install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Install all Vundle plugins
+vim +PluginInstall +qall
+
+# Create the necessary directories
+mkdir ~/.vim/undo ~/.vim/swap ~/.vim/backup
 
 
 
