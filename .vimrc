@@ -98,6 +98,7 @@ set splitright                      " Open vertical splits on the right
 set splitbelow                      " Open horizontal splits on the bottom
 
 " Backup
+set undofile
 set undodir=~/.vim/undo//           " Where to store undo files
 set directory=~/.vim/swap//         " Where to store swap files
 set backupdir=~/.vim/backup//       " Where to store backup files
