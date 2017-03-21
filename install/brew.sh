@@ -60,6 +60,7 @@ brew cask install flux              # Flux
 brew cask install google-chrome     # Google Chrome
 brew cask install google-drive      # Google Drive
 brew cask install jadengeller-helium    # Helium
+brew cask install karabiner-elements    # Karabiner Elements
 brew cask install keepingyouawake   # KeepingYouAwake
 brew cask install licecap           # LICEcap
 brew cask install postman           # Postman
