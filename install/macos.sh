@@ -170,7 +170,7 @@ chsh -s $(which zsh)
 # Set my custom theme as the default
 osascript <<EOD
 tell application "Terminal"
-	local InitiallyOpenedWindows
+    local InitiallyOpenedWindows
 	local AllOpenedWindows
 	local WindowID
 
@@ -211,6 +211,18 @@ EOD
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -bool false
+
+
+
+################################################################################
+# tmux                                                                         #
+################################################################################
+
+# Install TMP
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Install plugins
+~/.tmux/plugins/tpm/bin/install_plugins
 
 
 
@@ -266,11 +278,11 @@ defaults write org.m0k.Transmission WarningLegal -bool false
 # Install Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Install all Vundle plugins
+# Install plugins
 vim +PluginInstall +qall
 
 # Create the necessary directories
-mkdir ~/.vim/undo ~/.vim/swap ~/.vim/backup
+mkdir -p ~/.vim/undo ~/.vim/swap ~/.vim/backup
 
 
 
