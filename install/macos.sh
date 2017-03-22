@@ -171,35 +171,35 @@ chsh -s $(which zsh)
 osascript <<EOD
 tell application "Terminal"
     local InitiallyOpenedWindows
-	local AllOpenedWindows
-	local WindowID
+    local AllOpenedWindows
+    local WindowID
 
-	set ThemeName to "Osinga"
+    set ThemeName to "Osinga"
 
-	-- Get the IDs of all open Terminal windows
-	set InitiallyOpenedWindows to id of every window
+    -- Get the IDs of all open Terminal windows
+    set InitiallyOpenedWindows to id of every window
 
-	-- Add the custom theme
-	do shell script "open '$HOME/install/" & ThemeName & ".terminal'"
+    -- Add the custom theme
+    do shell script "open '$HOME/install/" & ThemeName & ".terminal'"
 
-	-- Wait to ensure the theme has been hadded
-	delay 1
+    -- Wait to ensure the theme has been hadded
+    delay 1
 
-	-- Set the default Terminal theme
-	set default settings to settings set ThemeName
+    -- Set the default Terminal theme
+    set default settings to settings set ThemeName
 
-	-- Get the IDs of all open Terminal windows
-	set AllOpenedWindows to id of every window
+    -- Get the IDs of all open Terminal windows
+    set AllOpenedWindows to id of every window
 
-	repeat with WindowID in AllOpenedWindows
-		if InitiallyOpenedWindows does not contain WindowID then
-			-- Close the aditionally opened windows
-			close (every window whose id is WindowID)
-		else
-			-- Change the initially opened window's theme
-			set current settings of tabs of (every window whose id is WindowID) to settings set ThemeName
-		end if
-	end repeat
+    repeat with WindowID in AllOpenedWindows
+        if InitiallyOpenedWindows does not contain WindowID then
+            -- Close the aditionally opened windows
+            close (every window whose id is WindowID)
+        else
+            -- Change the initially opened window's theme
+            set current settings of tabs of (every window whose id is WindowID) to settings set ThemeName
+        end if
+    end repeat
 end tell
 EOD
 
