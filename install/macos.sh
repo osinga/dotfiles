@@ -33,10 +33,6 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
-# Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.Screensaver askForPassword -int 1
 defaults write com.apple.Screensaver askForPasswordDelay -int 0
