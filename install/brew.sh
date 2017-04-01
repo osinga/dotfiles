@@ -58,6 +58,7 @@ brew cask install dropbox           # Dropbox
 brew cask install firefox           # Firefox
 brew cask install google-chrome     # Google Chrome
 brew cask install google-drive      # Google Drive
+brew cask install imageoptim        # ImageOptim
 brew cask install jadengeller-helium    # Helium
 brew cask install karabiner-elements    # Karabiner Elements
 brew cask install keepingyouawake   # KeepingYouAwake
