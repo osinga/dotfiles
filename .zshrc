@@ -38,7 +38,7 @@ function manpdf() {
 
 # Display a random quote with a random animal with pretty colors
 function surprise() {
-    fortune -a | cowsay -n -f $(ls /usr/local/Cellar/cowsay/3.04/share/cows/*.cow | gshuf -n1) | lolcat
+    fortune -a | cowsay -n -f $(ls /usr/local/Cellar/cowsay/*/share/cows/*.cow | gshuf -n1) | lolcat
 }
 
 
