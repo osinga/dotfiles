@@ -66,7 +66,10 @@ let g:airline_skip_empty_sections = 1   " Do not show empty sections
 " Ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|target|dist)|(\.(swp|ico|git|svn))$'
 
-" NERDTree
+" NERD Commenter
+let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
+
+" NERD Tree
 let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
 let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
 
