@@ -159,10 +159,6 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true
 # Hide the line marks
 defaults write com.apple.Terminal ShowLineMarks -bool false
 
-# Set zsh as the default shell
-echo $(which zsh) >> /etc/shells
-chsh -s $(which zsh)
-
 # Set my custom theme as the default
 osascript <<EOD
 tell application "Terminal"
@@ -198,6 +194,13 @@ tell application "Terminal"
     end repeat
 end tell
 EOD
+
+# Set zsh as the default shell
+echo $(which zsh) >> /etc/shells
+chsh -s $(which zsh)
+
+# Download zsh-syntax-highlighting
+ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 
 
