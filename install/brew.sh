@@ -67,6 +67,7 @@ brew cask install licecap           # LICEcap
 brew cask install postman           # Postman
 brew cask install robomongo         # Robomongo
 brew cask install sequel-pro        # Sequel Pro
+brew cask install slack             # Slack
 brew cask install spotify           # Spotify
 brew cask install sublime-text      # Sublime Text
 brew cask install torbrowser        # TorBrowser
