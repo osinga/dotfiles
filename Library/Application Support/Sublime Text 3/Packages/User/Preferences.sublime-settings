@@ -1,0 +1,20 @@
+{
+	"color_pick_upcase": true,
+	"color_scheme": "Packages/User/SublimeLinter/One Dark (SL).tmTheme",
+	"font_size": 12,
+	"ignored_packages":
+	[
+		"Vintage",
+		"Vintageous"
+	],
+	"jsdocs_extend_double_slash": false,
+	"jsdocs_spacer_between_sections": true,
+	"material_theme_accent_graphite": true,
+	"material_theme_compact_sidebar": true,
+	"material_theme_disable_folder_animation": true,
+	"material_theme_tree_headings": true,
+	"scroll_past_end": true,
+	"show_panel_on_build": true,
+	"theme": "Material-Theme-Darker.sublime-theme",
+	"trim_trailing_white_space_on_save": true
+}
