@@ -27,6 +27,7 @@ brew install git                    # Version control
 brew install httpie                 # Modern HTTP client
 brew install macvim --with-override-system-vim  # Use MacVim in the terminal
 brew install mongodb                # NoSQL database
+brew install mysql                  # MySQL
 brew install node                   # JavaScript runtime environment
 brew install php71                  # PHP 7.1
 brew install python3                # Python 3
@@ -101,3 +102,4 @@ brew tap homebrew/services          # Tap Homebrew Services
 
 # Start
 brew services start mongodb         # MongoDB
+brew services start mysql           # MySQL
