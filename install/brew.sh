@@ -73,7 +73,6 @@ brew cask install spotify           # Spotify
 brew cask install sublime-text      # Sublime Text
 brew cask install torbrowser        # TorBrowser
 brew cask install transmission      # Transmission
-brew cask install transmit          # Transmit
 brew cask install vlc               # VLC
 
 
