@@ -34,6 +34,7 @@ brew install reattach-to-user-namespace         # macOS pasteboard access in tmu
 brew install tmux                   # Terminal multiplexer
 brew install tree                   # Recursive directory listing
 brew install wget                   # Download Web files
+brew install wifi-password          # Wi-Fi password
 brew install zsh                    # Alternative shell
 brew install zsh-completions        # Additional Zsh completions
 
