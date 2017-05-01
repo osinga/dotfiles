@@ -1,0 +1,102 @@
+"*":
+  "activate-power-mode":
+    autoToggle: false
+  "atom-beautify":
+    css:
+      newline_between_rules: true
+      no_lead_zero: true
+    general:
+      _analyticsUserId: "975a1b4b-3368-470f-bca9-5f335ee47ffa"
+      analytics: false
+      beautifyEntireFileOnSave: false
+    html:
+      end_with_newline: true
+      indent_inner_html: true
+    js:
+      end_with_newline: true
+      space_before_conditional: false
+  "atom-material-ui":
+    colors:
+      abaseColor: "#795548"
+      predefinedColor: "Brown"
+    fonts:
+      fontSize: 14
+    tabs:
+      compactTabs: true
+      tintedTabBar: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      animations: false
+      panelContrast: true
+  "autoclose-html": {}
+  core:
+    disabledPackages: [
+      "metrics"
+      "autoflow"
+      "linter-csslint"
+      "linter-csslint"
+      "wrap-guide"
+      "tree-view-open-files"
+    ]
+    telemetryConsent: "no"
+  docblockr:
+    extend_double_slash: false
+  editor:
+    fontSize: 11
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    softTabs: false
+    softWrap: true
+  "exception-reporting":
+    userId: "38060e68-5d07-34ab-7bbb-cd8a49c9ed78"
+  expose: {}
+  "file-icons":
+    coloured: false
+  "git-diff-details": {}
+  "isotope-ui":
+    minimalMode: true
+  linter:
+    errorPanelHeight: 116
+  "linter-scss-lint":
+    disableWhenNoConfigFileInPath: true
+  "linter-ui-default": {}
+  minimap:
+    adjustMinimapWidthToSoftWrap: false
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "one-dark-ui":
+    layoutMode: "Compact"
+  pigments:
+    groupPaletteColors: "by file"
+    markerType: "dot"
+    mergeColorDuplicates: true
+  "split-diff":
+    syncHorizontalScroll: true
+  tabs: {}
+  "todo-show": {}
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "
+".html.php.text":
+  editor:
+    tabLength: 4
+".js.regexp.replacement.source":
+  editor:
+    tabLength: 4
+".js.regexp.source":
+  editor:
+    tabLength: 4
+".js.source":
+  editor:
+    tabLength: 4
