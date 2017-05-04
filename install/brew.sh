@@ -19,6 +19,7 @@ brew upgrade                        # Upgrade any already-installed formulae
 
 # Install
 brew install ack                    # Search through source code
+brew install cmake                  # Install CMake
 brew install coreutils              # Install GNU command line tools
 brew install cowsay                 # Generate ASCII pictures
 brew install curl                   # Transfer data
