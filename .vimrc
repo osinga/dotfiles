@@ -73,6 +73,10 @@ let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
 let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
 let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
 
+" Scratch
+let g:scratch_height = 15           " Increase the default height
+let g:scratch_filetype = 'markdown' " Use Markdown as the filetype
+
 " Tabline
 let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
 let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
@@ -164,6 +168,9 @@ nmap <space> \
 
 " Toggle NERDTree
 nnoremap <leader>k :NERDTreeToggle<cr>
+
+" Toggle Scratch
+nnoremap <leader>gs :ScratchPreview<cr>
 
 " Tab line mappings from Airline
 nmap <leader>1 <Plug>AirlineSelectTab1

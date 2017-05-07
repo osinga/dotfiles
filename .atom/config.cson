@@ -58,8 +58,7 @@
   "git-diff-details": {}
   "isotope-ui":
     minimalMode: true
-  linter:
-    errorPanelHeight: 116
+  linter: {}
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
   "linter-ui-default": {}
