@@ -60,7 +60,6 @@ end
 colorscheme onedark                     " Set the syntax to One Dark
 
 let g:airline_theme = 'onedark'         " Set the Airline theme to One Dark
-let g:airline_powerline_fonts = 1       " Enable Airline Powerline fonts
 let g:airline_skip_empty_sections = 1   " Do not show empty sections
 
 " Ctrlp
