@@ -69,6 +69,9 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|target|dist)|(\.(swp|ico
 " NERD Commenter
 let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
 
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1  " Hide preview after leaving insert
+
 " NERD Tree
 let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
 let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
