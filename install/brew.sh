@@ -33,6 +33,7 @@ brew install node                   # JavaScript runtime environment
 brew install php71                  # PHP 7.1
 brew install python3                # Python 3
 brew install reattach-to-user-namespace         # macOS pasteboard access in tmux
+brew install tig                    # Text-mode interface for git
 brew install tmux                   # Terminal multiplexer
 brew install tree                   # Recursive directory listing
 brew install wget                   # Download Web files
