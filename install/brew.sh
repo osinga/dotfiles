@@ -25,6 +25,7 @@ brew install cowsay                 # Generate ASCII pictures
 brew install curl                   # Transfer data
 brew install fortune                # Display a random message
 brew install git                    # Version control
+brew install htop                   # Interactive process viewer
 brew install httpie                 # Modern HTTP client
 brew install macvim --with-override-system-vim  # Use MacVim in the terminal
 brew install mongodb                # NoSQL database
