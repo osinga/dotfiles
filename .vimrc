@@ -31,10 +31,8 @@ Plugin 'tpope/vim-surround'                 " Surround with everything
 Plugin 'tpope/vim-repeat'                   " Repeat plugin mappings
 Plugin 'valloric/youcompleteme'             " Code completion
 Plugin 'tpope/vim-unimpaired'               " Complementary mappings
-Plugin 'mtth/scratch.vim'                   " Scratch window
 Plugin 'junegunn/vim-easy-align'            " Align text
 Plugin 'ap/vim-css-color'                   " Color keyword highlighting
-Plugin 'mileszs/ack.vim'                    " Ack within Vim
 
 call vundle#end()
 
@@ -75,10 +73,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1  " Hide preview after lea
 " NERD Tree
 let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
 let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
-
-" Scratch
-let g:scratch_height = 15           " Increase the default height
-let g:scratch_filetype = 'markdown' " Use Markdown as the filetype
 
 " Tabline
 let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
@@ -171,9 +165,6 @@ nmap <space> \
 
 " Toggle NERDTree
 nnoremap <leader>k :NERDTreeToggle<cr>
-
-" Toggle Scratch
-nnoremap <leader>gs :ScratchPreview<cr>
 
 " Tab line mappings from Airline
 nmap <leader>1 <Plug>AirlineSelectTab1
