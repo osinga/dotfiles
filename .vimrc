@@ -47,10 +47,10 @@ filetype plugin indent on
 " Theme
 syntax enable                           " Enable syntax highlighting
 
-if (has("autocmd") && !has("gui_running"))
+if (has('autocmd') && !has('gui_running'))
     " Remove the background in the Terminal
-    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
+    let s:white = { 'gui': '#ABB2BF', 'cterm': '145', 'cterm16' : '7' }
+    autocmd ColorScheme * call onedark#set_highlight('Normal', { 'fg': s:white })
 else
     " Set the font to use in the GUI
     set guifont=Roboto\ Mono\ Light\ for\ Powerline:h12
