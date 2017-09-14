@@ -15,4 +15,3 @@ brew cleanup                        # Remove cached downloads and old versions
 # Node
 npm install npm@latest -g           # Update to the latest version of npm
 npm update -g                       # Update all global packages
-npm cache clean                     # Remove cached packages
