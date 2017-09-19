@@ -91,6 +91,7 @@ brew cask install vlc               # VLC
 brew tap caskroom/fonts             # Tap Homebrew Fonts
 
 # Install
+brew cask install font-open-sans                    # Open Sans
 brew cask install font-roboto-mono-for-powerline    # Roboto Mono for Powerline
 
 # Cleanup
