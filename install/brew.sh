@@ -69,6 +69,7 @@ brew cask install karabiner-elements        # Karabiner Elements
 brew cask install keepingyouawake   # KeepingYouAwake
 brew cask install licecap           # LICEcap
 brew cask install ngrok             # ngrok
+brew cask install opera             # Opera
 brew cask install postman           # Postman
 brew cask install robomongo         # Robomongo
 brew cask install sequel-pro        # Sequel Pro
