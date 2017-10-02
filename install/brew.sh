@@ -81,6 +81,7 @@ brew cask install torbrowser        # TorBrowser
 brew cask install transmission      # Transmission
 brew cask install tunnelblick       # Tunnelblick
 brew cask install vlc               # VLC
+brew cask install whatsapp          # WhatsApp
 
 
 
