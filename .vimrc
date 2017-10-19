@@ -16,7 +16,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'        " Git plugin for NERDTree
 Plugin 'tpope/vim-fugitive'                 " Git plugin
 Plugin 'bling/vim-airline'                  " Status line
 Plugin 'vim-airline/vim-airline-themes'     " Themes for Airline
-Plugin 'ctrlpvim/ctrlp.vim'                 " Fuzzy file finder
 Plugin 'christoomey/vim-tmux-navigator'     " Navigate between Vim/tmux
 Plugin 'tpope/vim-obsession'                " Remember Vim state
 Plugin 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
@@ -33,6 +32,8 @@ Plugin 'valloric/youcompleteme'             " Code completion
 Plugin 'tpope/vim-unimpaired'               " Complementary mappings
 Plugin 'junegunn/vim-easy-align'            " Align text
 Plugin 'ap/vim-css-color'                   " Color keyword highlighting
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'                   " Fuzzy file finder
 
 call vundle#end()
 
@@ -60,10 +61,6 @@ colorscheme onedark                     " Set the syntax to One Dark
 
 let g:airline_theme = 'onedark'         " Set the Airline theme to One Dark
 let g:airline_skip_empty_sections = 1   " Do not show empty sections
-
-" Ctrlp
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|vendor|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_show_hidden = 1             " Show hidden files
 
 " NERD Commenter
 let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
@@ -154,6 +151,10 @@ augroup END
 
 autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
 
+" Show fzf Files results with a preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -164,10 +165,15 @@ autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
 let mapleader = '\'
 nmap <space> \
 
+" fzf
+nnoremap <silent> <Leader>b :Buffers<cr>
+nnoremap <silent> <Leader>f :Files<cr>
+nnoremap <silent> <Leader>g :BCommits<cr>
+
 " Toggle NERDTree
 nnoremap <leader>k :NERDTreeToggle<cr>
 
-" Tab line mappings from Airline
+" Airline
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3

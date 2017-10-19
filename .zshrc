@@ -66,3 +66,4 @@ export LSCOLORS=GxFxCxDxBxegedabagaced  # Customize the colors
 ################################################################################
 
 source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -24,6 +24,7 @@ brew install coreutils              # Install GNU command line tools
 brew install cowsay                 # Generate ASCII pictures
 brew install curl                   # Transfer data
 brew install fortune                # Display a random message
+brew install fzf                    # Fuzzy file finder
 brew install git                    # Version control
 brew install htop                   # Interactive process viewer
 brew install httpie                 # Modern HTTP client
