@@ -18,7 +18,6 @@ brew upgrade                        # Upgrade any already-installed formulae
 ################################################################################
 
 # Install
-brew install ag                     # Search through source code
 brew install cmake                  # Install CMake
 brew install coreutils              # Install GNU command line tools
 brew install cowsay                 # Generate ASCII pictures
@@ -35,6 +34,7 @@ brew install node                   # JavaScript runtime environment
 brew install php71                  # PHP 7.1
 brew install python3                # Python 3
 brew install reattach-to-user-namespace         # macOS pasteboard access in tmux
+brew install the_silver_searcher    # Search through source code
 brew install tig                    # Text-mode interface for git
 brew install tmux                   # Terminal multiplexer
 brew install tree                   # Recursive directory listing
