@@ -76,6 +76,12 @@ let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
 let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
 let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
 
+" GitGutter
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+
 " Insert
 set showmatch                       " Briefly show matching bracket on insert
 
