@@ -54,7 +54,7 @@ if (has('autocmd') && !has('gui_running'))
     autocmd ColorScheme * call onedark#set_highlight('Normal', { 'fg': s:white })
 else
     " Set the font to use in the GUI
-    set guifont=Roboto\ Mono\ Light\ for\ Powerline:h12
+    set guifont=Iosevka\ Term\ Light:h14
 end
 
 colorscheme onedark                     " Set the syntax to One Dark

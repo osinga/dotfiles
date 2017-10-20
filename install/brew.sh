@@ -94,8 +94,8 @@ brew cask install whatsapp          # WhatsApp
 brew tap caskroom/fonts             # Tap Homebrew Fonts
 
 # Install
+brew cask install font-iosevka                      # Iosevka
 brew cask install font-open-sans                    # Open Sans
-brew cask install font-roboto-mono-for-powerline    # Roboto Mono for Powerline
 
 # Cleanup
 brew cask cleanup                   # Remove cached downloads and tracker symlinks
