@@ -161,6 +161,10 @@ autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
+" Show fzf Ag results with a preview window
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,6 +176,7 @@ let mapleader = '\'
 nmap <space> \
 
 " fzf
+nnoremap <silent> <Leader>a :Ag<cr>
 nnoremap <silent> <Leader>b :Buffers<cr>
 nnoremap <silent> <Leader>f :Files<cr>
 nnoremap <silent> <Leader>g :BCommits<cr>
