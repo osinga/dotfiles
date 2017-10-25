@@ -15,3 +15,6 @@ brew cleanup                        # Remove cached downloads and old versions
 # Node
 npm install npm@latest -g           # Update to the latest version of npm
 npm update -g                       # Update all global packages
+
+# Vim
+vim +PluginUpdate                   # Update all Vim plugins
