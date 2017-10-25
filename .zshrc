@@ -59,6 +59,10 @@ export VISUAL="$EDITOR"             # Set the default editor
 export CLICOLOR=1                   # Turn colors on
 export LSCOLORS=GxFxCxDxBxegedabagaced  # Customize the colors
 
+# fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'   # Set ag as the default source
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 
 
 ################################################################################
