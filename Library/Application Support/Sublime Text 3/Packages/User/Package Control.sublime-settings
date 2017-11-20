@@ -25,7 +25,8 @@
 		"SublimeLinter-php",
 		"Swift",
 		"Vintageous",
-		"Vue Syntax Highlight"
+		"Vue Syntax Highlight",
+		"WakaTime"
 	],
 	"repositories":
 	[
