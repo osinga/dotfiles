@@ -34,7 +34,6 @@ Plugin 'junegunn/vim-easy-align'            " Align text
 Plugin 'ap/vim-css-color'                   " Color keyword highlighting
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'                   " Fuzzy file finder
-Plugin 'wakatime/vim-wakatime'              " WakaTime
 Plugin 'w0rp/ale'                           " Asynchronous Lint Engine
 
 call vundle#end()
