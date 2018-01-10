@@ -1,6 +1,6 @@
 [user]
 	name = Osinga
-	email = ***REMOVED***
+	email = Osinga@users.noreply.github.com
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
