@@ -7,7 +7,7 @@ export ZSH=/Users/Osinga/.oh-my-zsh
 ################################################################################
 
 # Plugins
-plugins=(git nyan zsh-syntax-highlighting)
+plugins=(git nyan osx zsh-syntax-highlighting)
 
 # Settings
 ZSH_THEME='osinga'                  # Set the terminal theme
