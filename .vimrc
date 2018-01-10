@@ -66,6 +66,9 @@ let g:airline_skip_empty_sections = 1   " Do not show empty sections
 " NERD Commenter
 let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
 
+" Vim Vue
+let g:vue_disable_pre_processors = 1    " Disable checking for preprocessors
+
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1  " Hide preview after leaving insert
 
@@ -166,6 +169,31 @@ command! -bang -nargs=? -complete=dir Files
 " Show fzf Ag results with a preview window
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" Fix for using NERDCommenter in Vue files
+let g:ft = ''
+
+function! NERDCommenter_before()
+    if &ft == 'vue'
+        let g:ft = 'vue'
+        let stack = synstack(line('.'), col('.'))
+
+        if len(stack) > 0
+            let syn = synIDattr((stack)[0], 'name')
+
+            if len(syn) > 0
+                exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+            endif
+        endif
+    endif
+endfunction
+
+function! NERDCommenter_after()
+    if g:ft == 'vue'
+        setf vue
+        let g:ft = ''
+    endif
+endfunction
 
 
 
