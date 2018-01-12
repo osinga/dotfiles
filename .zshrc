@@ -7,7 +7,7 @@ export ZSH=/Users/Osinga/.oh-my-zsh
 ################################################################################
 
 # Plugins
-plugins=(git nyan osx zsh-syntax-highlighting)
+plugins=(git nyan osx vi-mode zsh-syntax-highlighting)
 
 # Settings
 ZSH_THEME='osinga'                  # Set the terminal theme
@@ -58,10 +58,15 @@ export EDITOR=/usr/local/bin/vim    # Set the default editor
 export VISUAL="$EDITOR"             # Set the default editor
 export CLICOLOR=1                   # Turn colors on
 export LSCOLORS=GxFxCxDxBxegedabagaced  # Customize the colors
+export KEYTIMEOUT=1                 #  Kill the lag
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'   # Set ag as the default source
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Vi-mode
+autoload -U colors && colors
+export MODE_INDICATOR="%{$fg_bold[green]%}[NORMAL]%{$reset_color%}"
 
 
 
