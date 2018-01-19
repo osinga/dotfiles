@@ -31,6 +31,9 @@ alias dev='cd ~/Development'
 # Direct access to the Dotfiles repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Add Hub sugar to Git
+eval "$(hub alias -s)"
+
 
 
 ################################################################################

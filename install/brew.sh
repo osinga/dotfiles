@@ -27,6 +27,7 @@ brew install fzf                    # Fuzzy file finder
 brew install git                    # Version control
 brew install htop                   # Interactive process viewer
 brew install httpie                 # Modern HTTP client
+brew install hub                    # Sugar for Git
 brew install macvim --with-override-system-vim  # Use MacVim in the terminal
 brew install mongodb                # NoSQL database
 brew install mysql                  # MySQL
