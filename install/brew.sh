@@ -32,7 +32,7 @@ brew install macvim --with-override-system-vim  # Use MacVim in the terminal
 brew install mongodb                # NoSQL database
 brew install mysql                  # MySQL
 brew install node                   # JavaScript runtime environment
-brew install php71                  # PHP 7.1
+brew install php72                  # PHP 7.2
 brew install python3                # Python 3
 brew install reattach-to-user-namespace         # macOS pasteboard access in tmux
 brew install the_silver_searcher    # Search through source code
