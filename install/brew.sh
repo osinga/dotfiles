@@ -55,7 +55,7 @@ brew cleanup                        # Remove cached downloads and old versions
 ################################################################################
 
 # Setup
-brew tap caskroom/cask              # Tap Homebrew Cask
+brew tap homebrew/cask              # Tap Homebrew Cask
 
 # Install
 brew cask install alfred            # Alfred
@@ -94,7 +94,7 @@ brew cask install whatsapp          # WhatsApp
 ################################################################################
 
 # Setup
-brew tap caskroom/fonts             # Tap Homebrew Fonts
+brew tap homebrew/cask-fonts        # Tap Homebrew Fonts
 
 # Install
 brew cask install font-iosevka                      # Iosevka
