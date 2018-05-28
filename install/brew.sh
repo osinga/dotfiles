@@ -60,7 +60,6 @@ brew tap homebrew/cask              # Tap Homebrew Cask
 # Install
 brew cask install alfred            # Alfred
 brew cask install appcleaner        # AppCleaner
-brew cask install atom              # Atom
 brew cask install calibre           # Calibre
 brew cask install dropbox           # Dropbox
 brew cask install firefox           # Firefox
