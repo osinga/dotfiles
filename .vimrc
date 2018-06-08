@@ -250,10 +250,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 nnoremap <leader>st :!tmux source-file ~/.tmux.conf<cr><cr>
 
-" Sort lines by length
-xmap sl ! awk '{ print length(), $0 \| "sort -nr \| cut -d\\  -f2-" }'<cr>
-xmap ss ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
-
 " Use ctrl-[hjkl] to move between split panes
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
