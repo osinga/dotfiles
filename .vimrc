@@ -11,29 +11,29 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'               " Plugin manager
-Plugin 'scrooloose/nerdtree'                " File explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin'        " Git plugin for NERDTree
-Plugin 'tpope/vim-fugitive'                 " Git plugin
-Plugin 'bling/vim-airline'                  " Status line
-Plugin 'vim-airline/vim-airline-themes'     " Themes for Airline
-Plugin 'christoomey/vim-tmux-navigator'     " Navigate between Vim/tmux
-Plugin 'tpope/vim-obsession'                " Remember Vim state
-Plugin 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
-Plugin 'joshdick/onedark.vim'               " One Dark theme
-Plugin 'jiangmiao/auto-pairs'               " Auto close brackets etc.
-Plugin 'sheerun/vim-polyglot'               " Collection of sytaxes
-Plugin 'mattn/emmet-vim'                    " Emmet
-Plugin 'scrooloose/nerdcommenter'           " Easy commenting
 Plugin 'airblade/vim-gitgutter'             " Show git status in gutter
-Plugin 'ntpeters/vim-better-whitespace'     " Show trailing whitespace
-Plugin 'tpope/vim-surround'                 " Surround with everything
-Plugin 'tpope/vim-repeat'                   " Repeat plugin mappings
-Plugin 'valloric/youcompleteme'             " Code completion
-Plugin 'tpope/vim-unimpaired'               " Complementary mappings
-Plugin 'junegunn/vim-easy-align'            " Align text
 Plugin 'ap/vim-css-color'                   " Color keyword highlighting
+Plugin 'bling/vim-airline'                  " Status line
+Plugin 'christoomey/vim-tmux-navigator'     " Navigate between Vim/tmux
+Plugin 'jiangmiao/auto-pairs'               " Auto close brackets etc.
+Plugin 'joshdick/onedark.vim'               " One Dark theme
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'                   " Fuzzy file finder
+Plugin 'junegunn/vim-easy-align'            " Align text
+Plugin 'mattn/emmet-vim'                    " Emmet
+Plugin 'ntpeters/vim-better-whitespace'     " Show trailing whitespace
+Plugin 'scrooloose/nerdcommenter'           " Easy commenting
+Plugin 'scrooloose/nerdtree'                " File explorer
+Plugin 'sheerun/vim-polyglot'               " Collection of sytaxes
+Plugin 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
+Plugin 'tpope/vim-fugitive'                 " Git plugin
+Plugin 'tpope/vim-obsession'                " Remember Vim state
+Plugin 'tpope/vim-repeat'                   " Repeat plugin mappings
+Plugin 'tpope/vim-surround'                 " Surround with everything
+Plugin 'tpope/vim-unimpaired'               " Complementary mappings
+Plugin 'valloric/youcompleteme'             " Code completion
+Plugin 'vim-airline/vim-airline-themes'     " Themes for Airline
 Plugin 'w0rp/ale'                           " Asynchronous Lint Engine
 
 call vundle#end()
@@ -60,11 +60,27 @@ end
 
 colorscheme onedark                     " Set the syntax to One Dark
 
-let g:airline_theme = 'onedark'         " Set the Airline theme to One Dark
+" Airline
 let g:airline_skip_empty_sections = 1   " Do not show empty sections
+let g:airline_theme = 'onedark'         " Set the Airline theme to One Dark
+
+" GitGutter
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_removed_first_line = '∙'
 
 " NERD Commenter
 let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
+
+" NERD Tree
+let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
+let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
+
+" Tabline
+let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
+let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
 
 " Vim Vue
 let g:vue_disable_pre_processors = 1    " Disable checking for preprocessors
@@ -72,31 +88,19 @@ let g:vue_disable_pre_processors = 1    " Disable checking for preprocessors
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1  " Hide preview after leaving insert
 
-" NERD Tree
-let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
-let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
-
-" Tabline
-let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
-let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
-
-" GitGutter
-let g:gitgutter_sign_added = '∙'
-let g:gitgutter_sign_modified = '∙'
-let g:gitgutter_sign_removed = '∙'
-let g:gitgutter_sign_modified_removed = '∙'
-let g:gitgutter_sign_removed_first_line = '∙'
-
-" Insert
-set showmatch                       " Briefly show matching bracket on insert
-
 " Accessibility
-set mouse=a                         " Allow the use of the mouse
 set clipboard=unnamed               " Use the macOS clipboard
+set mouse=a                         " Allow the use of the mouse
+
+" Backup
+set backupdir=~/.vim/backup//       " Where to store backup files
+set directory=~/.vim/swap//         " Where to store swap files
+set undodir=~/.vim/undo//           " Where to store undo files
+set undofile
 
 " Buffers
-set hidden                          " Hide buffers instead of unloading
 set autoread                        " Automatically refresh unedited changed files
+set hidden                          " Hide buffers instead of unloading
 
 " Command line
 set wildmenu                        " Enable command line completion
@@ -106,45 +110,42 @@ set wildmode=longest,full           " 1 longest common string, 2 next full match
 set foldenable                      " Close folds by default
 set foldmethod=indent               " Fold based on indentation
 
-" Splits
-set splitright                      " Open vertical splits on the right
-set splitbelow                      " Open horizontal splits on the bottom
-
-" Backup
-set undofile
-set undodir=~/.vim/undo//           " Where to store undo files
-set directory=~/.vim/swap//         " Where to store swap files
-set backupdir=~/.vim/backup//       " Where to store backup files
+" Insert
+set showmatch                       " Briefly show matching bracket on insert
 
 " Lines
 set number                          " Show line numbers
-set scrolloff=3                     " Always keep 3 lines above/below the curser
 set relativenumber                  " Use relative numbers
+set scrolloff=3                     " Always keep 3 lines above/below the curser
+
+" Performance
+set lazyredraw                      " No redrawing during macros/registers
+set notimeout                       " Do not time out mappings
+set synmaxcol=800                   " Don't highlight lines after column 800
+set ttimeout                        " Do time out key codes
+set ttimeoutlen=10                  " Wait 10 ms for a mapping to complete
+set ttyfast                         " Indicate a fast terminal connection
 
 " Search
 set hlsearch                        " Highlight all matches for previous search
+set ignorecase                      " Ignore case in search patterns
 set incsearch                       " Show live search results while typing
 set smartcase                       " Don't ignore case if pattern has uppercase
-set ignorecase                      " Ignore case in search patterns
+
+" Splits
+set splitbelow                      " Open horizontal splits on the bottom
+set splitright                      " Open vertical splits on the right
 
 " Statusline
-set showcmd                         " Show (partial) commands in statusline
-set noshowmode                      " Hide the default mode indicator
 set laststatus=2                    " Always show the statusline
+set noshowmode                      " Hide the default mode indicator
+set showcmd                         " Show (partial) commands in statusline
 
 " Tabs
 set expandtab                       " Use spaces when tab is inserted
-set tabstop=4                       " Use 4 spaces for tabs
 set shiftwidth=4                    " Use 4 spaces for auto (auto)indent
 set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
-
-" Performance
-set ttyfast                         " Indicate a fast terminal connection
-set ttimeout                        " Do time out key codes
-set notimeout                       " Do not time out mappings
-set lazyredraw                      " No redrawing during macros/registers
-set synmaxcol=800                   " Don't highlight lines after column 800
-set ttimeoutlen=10                  " Wait 10 ms for a mapping to complete
+set tabstop=4                       " Use 4 spaces for tabs
 
 
 
@@ -205,15 +206,6 @@ endfunction
 let mapleader = '\'
 nmap <space> \
 
-" fzf
-nnoremap <silent> <Leader>a :Ag<cr>
-nnoremap <silent> <Leader>b :Buffers<cr>
-nnoremap <silent> <Leader>f :Files<cr>
-nnoremap <silent> <Leader>g :BCommits<cr>
-
-" Toggle NERDTree
-nnoremap <leader>k :NERDTreeToggle<cr>
-
 " Airline
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -226,6 +218,15 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
+
+" NERDTree
+nnoremap <leader>k :NERDTreeToggle<cr>
+
+" fzf
+nnoremap <silent> <Leader>a :Ag<cr>
+nnoremap <silent> <Leader>b :Buffers<cr>
+nnoremap <silent> <Leader>f :Files<cr>
+nnoremap <silent> <Leader>g :BCommits<cr>
 
 " Reselect last inserted text
 nnoremap gp `[v`]
@@ -265,8 +266,8 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 noremap gj j
 noremap gk k
 
-" use [ (-) and ] (+) to resize w(idth) and h(eight)
-nnoremap [w :vertical resize -5<cr>
-nnoremap ]w :vertical resize +5<cr>
+" use [ (-) and ] (+) to resize h(eight) and w(idth)
 nnoremap [h :resize -5<cr>
 nnoremap ]h :resize +5<cr>
+nnoremap [w :vertical resize -5<cr>
+nnoremap ]w :vertical resize +5<cr>
