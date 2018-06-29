@@ -79,6 +79,7 @@ brew cask install slack             # Slack
 brew cask install sourcetree        # SourceTree
 brew cask install spotify           # Spotify
 brew cask install sublime-text      # Sublime Text
+brew cask install telegram          # Telegram
 brew cask install torbrowser        # TorBrowser
 brew cask install transmission      # Transmission
 brew cask install tunnelblick       # Tunnelblick
