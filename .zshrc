@@ -9,7 +9,7 @@ export ZSH=/Users/Osinga/.oh-my-zsh
 # Plugins
 plugins=(
     git
-    nyan
+    npm
     osx
     vi-mode
     zsh-syntax-highlighting
@@ -29,7 +29,7 @@ ZSH_THEME='osinga'                  # Set the terminal theme
 alias dev='cd ~/Development'
 
 # SSH into the TRVL server
-alias server='ssh forge@52.214.228.4'
+alias trvl='ssh forge@52.214.228.4'
 
 # Direct access to the Dotfiles repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -73,11 +73,6 @@ export MODE_INDICATOR="%{$fg_bold[green]%}[NORMAL]%{$reset_color%}"
 # Open the provided man page as a PDF in Preview
 function manpdf() {
      man -t ${1} | open -f -a /Applications/Preview.app
-}
-
-# Display a random quote with a random animal with pretty colors
-function surprise() {
-    fortune -a | cowsay -n -f $(ls /usr/local/Cellar/cowsay/*/share/cows/*.cow | gshuf -n1) | lolcat
 }
 
 
