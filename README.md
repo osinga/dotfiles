@@ -21,7 +21,7 @@ Based on [this](https://developer.atlassian.com/blog/2016/02/best-way-to-store-d
 3. Clone the repository:
 
    ```zsh
-   git clone --bare git@github.com:Osinga/dotfiles.git ~/.dotfiles
+   git clone --bare git@github.com:osinga/dotfiles.git ~/.dotfiles
    ```
 
 4. Checkout the content:
