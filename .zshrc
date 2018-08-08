@@ -1,4 +1,4 @@
-export ZSH=/Users/osinga/.oh-my-zsh
+export ZSH=/Users/Osinga/.oh-my-zsh
 
 
 
