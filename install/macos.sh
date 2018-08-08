@@ -313,5 +313,3 @@ mkdir -p ~/.vim/undo ~/.vim/swap ~/.vim/backup
 killall Dock
 killall Finder
 killall SystemUIServer
-
-echo "Done. Note that some of these changes require a logout/restart to take effect."
