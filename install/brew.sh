@@ -69,7 +69,7 @@ brew cask install keepingyouawake   # KeepingYouAwake
 brew cask install licecap           # LICEcap
 brew cask install ngrok             # ngrok
 brew cask install opera             # Opera
-brew cask install robomongo         # Robomongo
+brew cask install robo-3t           # Robo 3T
 brew cask install sequel-pro        # Sequel Pro
 brew cask install slack             # Slack
 brew cask install spotify           # Spotify
