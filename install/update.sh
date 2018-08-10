@@ -17,4 +17,4 @@ npm install npm@latest -g           # Update to the latest version of npm
 npm update -g                       # Update all global packages
 
 # Vim
-vim +PluginUpdate                   # Update all Vim plugins
+vim +PlugUpgrade +PlugUpdate +qall  # Update vim-plug and all Vim plugins

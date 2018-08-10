@@ -1,42 +1,33 @@
-set nocompatible
-filetype off
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins                                                                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'               " Plugin manager
-Plugin 'Xuyuanp/nerdtree-git-plugin'        " Git plugin for NERDTree
-Plugin 'airblade/vim-gitgutter'             " Show git status in gutter
-Plugin 'ap/vim-css-color'                   " Color keyword highlighting
-Plugin 'bling/vim-airline'                  " Status line
-Plugin 'christoomey/vim-tmux-navigator'     " Navigate between Vim/tmux
-Plugin 'jiangmiao/auto-pairs'               " Auto close brackets etc.
-Plugin 'joshdick/onedark.vim'               " One Dark theme
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'                   " Fuzzy file finder
-Plugin 'junegunn/vim-easy-align'            " Align text
-Plugin 'mattn/emmet-vim'                    " Emmet
-Plugin 'ntpeters/vim-better-whitespace'     " Show trailing whitespace
-Plugin 'scrooloose/nerdcommenter'           " Easy commenting
-Plugin 'scrooloose/nerdtree'                " File explorer
-Plugin 'sheerun/vim-polyglot'               " Collection of sytaxes
-Plugin 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
-Plugin 'tpope/vim-fugitive'                 " Git plugin
-Plugin 'tpope/vim-obsession'                " Remember Vim state
-Plugin 'tpope/vim-repeat'                   " Repeat plugin mappings
-Plugin 'tpope/vim-surround'                 " Surround with everything
-Plugin 'tpope/vim-unimpaired'               " Complementary mappings
-Plugin 'valloric/youcompleteme'             " Code completion
-Plugin 'vim-airline/vim-airline-themes'     " Themes for Airline
-Plugin 'w0rp/ale'                           " Asynchronous Lint Engine
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'on': [] }
+Plug 'Xuyuanp/nerdtree-git-plugin'        " Git plugin for NERDTree
+Plug 'airblade/vim-gitgutter'             " Show git status in gutter
+Plug 'ap/vim-css-color'                   " Color keyword highlighting
+Plug 'bling/vim-airline'                  " Status line
+Plug 'christoomey/vim-tmux-navigator'     " Navigate between Vim/tmux
+Plug 'jiangmiao/auto-pairs'               " Auto close brackets etc.
+Plug 'joshdick/onedark.vim'               " One Dark theme
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'                   " Fuzzy file finder
+Plug 'junegunn/vim-easy-align'            " Align text
+Plug 'ntpeters/vim-better-whitespace'     " Show trailing whitespace
+Plug 'scrooloose/nerdcommenter'           " Easy commenting
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " File explorer
+Plug 'sheerun/vim-polyglot'               " Collection of sytaxes
+Plug 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
+Plug 'tpope/vim-fugitive'                 " Git plugin
+Plug 'tpope/vim-repeat'                   " Repeat plugin mappings
+Plug 'tpope/vim-surround'                 " Surround with everything
+Plug 'tpope/vim-unimpaired'               " Complementary mappings
+Plug 'vim-airline/vim-airline-themes'     " Themes for Airline
+Plug 'w0rp/ale'                           " Asynchronous Lint Engine
 
-call vundle#end()
+call plug#end()
 
 
 
@@ -44,11 +35,7 @@ call vundle#end()
 " Configurations                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on
-
 " Theme
-syntax enable                           " Enable syntax highlighting
-
 if (has('autocmd') && !has('gui_running'))
     " Remove the background in the Terminal
     let s:white = { 'gui': '#ABB2BF', 'cterm': '145', 'cterm16' : '7' }
@@ -155,13 +142,19 @@ set tabstop=4                       " Use 4 spaces for tabs
 
 autocmd FocusLost * :silent! wall   " Save when losing focus
 
+autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
+
 augroup CursorLine                  " Show cursor line in active window only
     autocmd!
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
-autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
+augroup LoadYCM                     " Load YouCompleteMe upon first insert
+    autocmd!
+    autocmd InsertEnter * call plug#load('YouCompleteMe')
+        \| autocmd! LoadYCM
+augroup END
 
 " Show fzf Files results with a preview window
 command! -bang -nargs=? -complete=dir Files
@@ -241,14 +234,6 @@ xmap ga <Plug>(EasyAlign)
 " Faster write/quit
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
-
-" Open ~/.vimrc in a vertically split window, and source it
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" Open ~/.tmux.conf in a vertically split window, and source it
-nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
-nnoremap <leader>st :!tmux source-file ~/.tmux.conf<cr><cr>
 
 " Use ctrl-[hjkl] to move between split panes
 nnoremap <C-h> <C-w><C-h>

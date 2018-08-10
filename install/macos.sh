@@ -295,14 +295,15 @@ defaults write org.m0k.Transmission WarningLegal -bool false
 # Vim                                                                          #
 ################################################################################
 
-# Install Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Create the necessary directories
+mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
+
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install plugins
-vim +PluginInstall +qall
-
-# Create the necessary directories
-mkdir -p ~/.vim/undo ~/.vim/swap ~/.vim/backup
+vim +PlugInstall +qall
 
 
 
