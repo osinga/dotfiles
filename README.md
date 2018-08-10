@@ -25,3 +25,9 @@ Based on [this](https://developer.atlassian.com/blog/2016/02/best-way-to-store-d
    ```zsh
    dotfiles config --local status.showUntrackedFiles no
    ```
+
+5. Run the install script:
+
+   ```zsh
+   ./install.sh
+   ```
