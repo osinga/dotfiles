@@ -5,27 +5,28 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'on': [] }
-Plug 'Xuyuanp/nerdtree-git-plugin'        " Git plugin for NERDTree
-Plug 'airblade/vim-gitgutter'             " Show git status in gutter
-Plug 'ap/vim-css-color'                   " Color keyword highlighting
-Plug 'bling/vim-airline'                  " Status line
-Plug 'christoomey/vim-tmux-navigator'     " Navigate between Vim/tmux
-Plug 'jiangmiao/auto-pairs'               " Auto close brackets etc.
-Plug 'joshdick/onedark.vim'               " One Dark theme
+Plug 'Xuyuanp/nerdtree-git-plugin'      " Git plugin for NERDTree
+Plug 'airblade/vim-gitgutter'           " Show git status in gutter
+Plug 'ap/vim-css-color'                 " Color keyword highlighting
+Plug 'bling/vim-airline'                " Status line
+Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
+Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
+Plug 'joshdick/onedark.vim'             " One Dark theme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'                   " Fuzzy file finder
-Plug 'junegunn/vim-easy-align'            " Align text
-Plug 'ntpeters/vim-better-whitespace'     " Show trailing whitespace
-Plug 'scrooloose/nerdcommenter'           " Easy commenting
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }      " File explorer
-Plug 'sheerun/vim-polyglot'               " Collection of sytaxes
-Plug 'tmux-plugins/vim-tmux-focus-events' " Restore focus lost/gained
-Plug 'tpope/vim-fugitive'                 " Git plugin
-Plug 'tpope/vim-repeat'                   " Repeat plugin mappings
-Plug 'tpope/vim-surround'                 " Surround with everything
-Plug 'tpope/vim-unimpaired'               " Complementary mappings
-Plug 'vim-airline/vim-airline-themes'     " Themes for Airline
-Plug 'w0rp/ale'                           " Asynchronous Lint Engine
+Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
+Plug 'junegunn/gv.vim'                  " Git commit browser
+Plug 'junegunn/vim-easy-align'          " Align text
+Plug 'ntpeters/vim-better-whitespace'   " Show trailing whitespace
+Plug 'scrooloose/nerdcommenter'         " Easy commenting
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
+Plug 'sheerun/vim-polyglot'             " Collection of sytaxes
+Plug 'tmux-plugins/vim-tmux-focus-events'   " Restore focus lost/gained
+Plug 'tpope/vim-fugitive'               " Git plugin
+Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
+Plug 'tpope/vim-surround'               " Surround with everything
+Plug 'tpope/vim-unimpaired'             " Complementary mappings
+Plug 'vim-airline/vim-airline-themes'   " Themes for Airline
+Plug 'w0rp/ale'                         " Asynchronous Lint Engine
 
 call plug#end()
 

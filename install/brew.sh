@@ -34,7 +34,6 @@ brew install php                    # PHP
 brew install python                 # Python
 brew install reattach-to-user-namespace         # macOS pasteboard access in tmux
 brew install the_silver_searcher    # Search through source code
-brew install tig                    # Text-mode interface for git
 brew install tldr                   # Simplified man pages
 brew install tmux                   # Terminal multiplexer
 brew install wget                   # Download Web files
