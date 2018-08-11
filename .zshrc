@@ -44,6 +44,7 @@ eval "$(hub alias -s)"
 ################################################################################
 
 # fzf
+export FZF_COMPLETION_OPTS='--preview "cat {}"'     # Add a preview window
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='ag -g ""'   # Set ag as the default source
 
@@ -63,17 +64,6 @@ export VISUAL="$EDITOR"             # Set the default editor
 # Vi-mode
 autoload -U colors && colors
 export MODE_INDICATOR="%{$fg_bold[green]%}[NORMAL]%{$reset_color%}"
-
-
-
-################################################################################
-# Functions                                                                    #
-################################################################################
-
-# Open the provided man page as a PDF in Preview
-function manpdf() {
-     man -t ${1} | open -f -a /Applications/Preview.app
-}
 
 
 
