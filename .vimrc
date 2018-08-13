@@ -12,7 +12,7 @@ Plug 'bling/vim-airline'                " Status line
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
 Plug 'joshdick/onedark.vim'             " One Dark theme
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
 Plug 'junegunn/gv.vim'                  " Git commit browser
 Plug 'junegunn/vim-easy-align'          " Align text
