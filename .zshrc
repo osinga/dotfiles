@@ -28,11 +28,11 @@ ZSH_THEME='osinga'                  # Set the terminal theme
 # Go to the Development directory
 alias dev='cd ~/Development'
 
-# SSH into the TRVL server
-alias trvl='ssh forge@52.214.228.4'
-
 # Direct access to the Dotfiles repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# SSH into the TRVL server
+alias trvl='ssh forge@52.214.228.4'
 
 # Add Hub sugar to Git
 eval "$(hub alias -s)"
