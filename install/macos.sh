@@ -27,19 +27,6 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-# Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
-
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.Screensaver askForPassword -int 1
-defaults write com.apple.Screensaver askForPasswordDelay -int 0
-
-# Show the battery percentage in the menu bar
-defaults write com.apple.menuextra.battery ShowPercent -bool true
-
 # Hot corners
 # Possible values:
 #  0: no-op
@@ -52,15 +39,23 @@ defaults write com.apple.menuextra.battery ShowPercent -bool true
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → None
-defaults write com.apple.Dock wvous-tl-corner -int 0
-defaults write com.apple.Dock wvous-tl-modifier -int 0
-# Top right screen corner → Desktop
-#defaults write com.apple.Dock wvous-tr-corner -int 4
-#defaults write com.apple.Dock wvous-tr-modifier -int 0
+
 # Bottom left screen corner → Put display to sleep
 defaults write com.apple.Dock wvous-bl-corner -int 10
 defaults write com.apple.Dock wvous-bl-modifier -int 0
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.Screensaver askForPassword -int 1
+defaults write com.apple.Screensaver askForPasswordDelay -int 0
+
+# Show the battery percentage in the menu bar
+defaults write com.apple.menuextra.battery ShowPercent -bool true
+
+# Restart automatically if the computer freezes
+sudo systemsetup -setrestartfreeze on
 
 
 
@@ -77,17 +72,11 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Dock                                                                         #
 ################################################################################
 
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.Dock tilesize -int 36
-
 # Enable spring loading for all Dock items
 defaults write com.apple.Dock enable-spring-load-actions-on-all-items -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.Dock mru-spaces -bool false
-
-# Enable the App Expose gesture
-defaults write com.apple.Dock showAppExposeGestureEnabled -bool true
 
 # Wipe all (default) app icons from the Dock
 defaults write com.apple.Dock persistent-apps -array
@@ -97,8 +86,12 @@ defaults write com.apple.Dock persistent-apps -array
 # Add a spacer to the left side of the Dock (where the applications are)
 defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-# Add a spacer to the right side of the Dock (where the Trash is)
-#defaults write com.apple.Dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
+# Enable the App Expose gesture
+defaults write com.apple.Dock showAppExposeGestureEnabled -bool true
+
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.Dock tilesize -int 36
 
 
 
@@ -106,32 +99,24 @@ defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-ty
 # Finder                                                                       #
 ################################################################################
 
-# Set Desktop as the default location for new Finder windows
-defaults write com.apple.Finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
-
-# Hide icons for hard drives, removable media, and servers on the desktop
-defaults write com.apple.Finder ShowHardDrivesOnDesktop -bool false
-defaults write com.apple.Finder ShowExternalHardDrivesOnDesktop -bool false
-defaults write com.apple.Finder ShowRemovableMediaOnDesktop -bool false
-defaults write com.apple.Finder ShowMountedServersOnDesktop -bool false
-
-# Do not show tags in the sidebar
-defaults write com.apple.Finder ShowRecentTags -bool false
-
-# Remove items from the Trash after 30 days
-defaults write com.apple.Finder FXRemoveOldTrashItems -bool true
-
-# Keep folders on top when sorting by name
-defaults write com.apple.Finder _FXSortFoldersFirst -bool true
+# Enable snap-to-grid for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
+#/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.DesktopServices DSDontWriteNetworkStores -bool true
 defaults write com.apple.DesktopServices DSDontWriteUSBStores -bool true
 
-# Enable snap-to-grid for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
-#/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
+# Keep folders on top when sorting by name
+defaults write com.apple.Finder _FXSortFoldersFirst -bool true
+
+# Expand the following File Info panes:
+defaults write com.apple.Finder FXInfoPanesExpanded -dict \
+    General -bool true \
+    OpenWith -bool true \
+    Preview -bool true \
+    Privileges -bool true
 
 # Use column view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
@@ -140,12 +125,20 @@ defaults write com.apple.Finder FXPreferredViewStyle -string "clmv"
 # Group files by application
 defaults write com.apple.Finder FXPreferredGroupBy -string "Kind"
 
-# Expand the following File Info panes:
-defaults write com.apple.Finder FXInfoPanesExpanded -dict \
-    General -bool true \
-    OpenWith -bool true \
-    Preview -bool true \
-    Privileges -bool true
+# Remove items from the Trash after 30 days
+defaults write com.apple.Finder FXRemoveOldTrashItems -bool true
+
+# Set Desktop as the default location for new Finder windows
+defaults write com.apple.Finder NewWindowTargetPath -string "file://${HOME}/Google Drive/"
+
+# Hide icons for hard drives, removable media, and servers on the desktop
+defaults write com.apple.Finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.Finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.Finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.Finder ShowRemovableMediaOnDesktop -bool false
+
+# Do not show tags in the sidebar
+defaults write com.apple.Finder ShowRecentTags -bool false
 
 
 
@@ -220,9 +213,6 @@ chsh -s $(which zsh)
 # Install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# Install lolcat
-gem install lolcat
-
 
 
 ################################################################################
@@ -250,8 +240,19 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Transmission                                                                 #
 ################################################################################
 
+# IP block list
+defaults write org.m0k.Transmission BlocklistNew -bool true
+defaults write org.m0k.Transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+defaults write org.m0k.Transmission BlocklistAutoUpdate -bool true
+
+# Don’t prompt for confirmation before removing non-downloading active transfers
+defaults write org.m0k.Transmission CheckRemoveDownloading -bool true
+
 # Don't prompt on quit with active transfers
 defaults write org.m0k.Transmission CheckQuit -bool false
+
+# Trash original torrent files
+defaults write org.m0k.Transmission DeleteOriginalTorrent -bool true
 
 # Use `~/Downloads` to store completed downloads
 defaults write org.m0k.Transmission DownloadLocationConstant -bool true
@@ -260,28 +261,17 @@ defaults write org.m0k.Transmission DownloadLocationConstant -bool true
 defaults write org.m0k.Transmission DownloadAsk -bool false
 defaults write org.m0k.Transmission MagnetOpenAsk -bool false
 
-# Don’t prompt for confirmation before removing non-downloading active transfers
-defaults write org.m0k.Transmission CheckRemoveDownloading -bool true
+# Enable remote access
+defaults write org.m0k.Transmission RPC -bool true
 
-# Trash original torrent files
-defaults write org.m0k.Transmission DeleteOriginalTorrent -bool true
+# Randomize port on launch
+defaults write org.m0k.Transmission RandomPort -bool true
 
 # Stop seeding at ratio 2,00
 defaults write org.m0k.Transmission RatioCheck -bool true
 
 # Remove from the transfer list when seeding completes
 defaults write org.m0k.Transmission RemoveWhenFinishSeeding -bool true
-
-# IP block list
-defaults write org.m0k.Transmission BlocklistNew -bool true
-defaults write org.m0k.Transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-defaults write org.m0k.Transmission BlocklistAutoUpdate -bool true
-
-# Randomize port on launch
-defaults write org.m0k.Transmission RandomPort -bool true
-
-# Enable remote access
-defaults write org.m0k.Transmission RPC -bool true
 
 # Hide the donate message
 defaults write org.m0k.Transmission WarningDonate -bool false
