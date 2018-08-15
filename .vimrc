@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Xuyuanp/nerdtree-git-plugin'      " Git plugin for NERDTree
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
 Plug 'ap/vim-css-color'                 " Color keyword highlighting
@@ -149,12 +149,6 @@ augroup CursorLine                  " Show cursor line in active window only
     autocmd!
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
-augroup END
-
-augroup LoadYCM                     " Load YouCompleteMe upon first insert
-    autocmd!
-    autocmd InsertEnter * call plug#load('YouCompleteMe')
-        \| autocmd! LoadYCM
 augroup END
 
 " Show fzf Files results with a preview window
