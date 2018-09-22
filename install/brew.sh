@@ -54,6 +54,7 @@ brew cleanup                        # Remove cached downloads and old versions
 brew tap homebrew/cask              # Tap Homebrew Cask
 
 # Install
+brew cask install 1password         # 1Password
 brew cask install alfred            # Alfred
 brew cask install appcleaner        # AppCleaner
 brew cask install calibre           # Calibre
