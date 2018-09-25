@@ -87,6 +87,9 @@ defaults write com.apple.Dock persistent-apps -array
 defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
+# Don't show recent applications
+defaults write com.apple.Dock show-recents -bool false
+
 # Enable the App Expose gesture
 defaults write com.apple.Dock showAppExposeGestureEnabled -bool true
 
