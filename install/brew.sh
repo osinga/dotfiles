@@ -64,7 +64,6 @@ brew cask install google-chrome     # Google Chrome
 brew cask install imageoptim        # ImageOptim
 brew cask install insomnia          # Insomnia
 brew cask install karabiner-elements        # Karabiner Elements
-brew cask install keepingyouawake   # KeepingYouAwake
 brew cask install ngrok             # ngrok
 brew cask install opera             # Opera
 brew cask install robo-3t           # Robo 3T
