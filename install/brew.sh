@@ -27,9 +27,9 @@ brew install htop                   # Interactive process viewer
 brew install httpie                 # Modern HTTP client
 brew install hub                    # Sugar for Git
 brew install macvim --with-override-system-vim  # Use MacVim in the terminal
-brew install mongodb                # NoSQL database
+brew install mongodb                # MongoDB
 brew install mysql                  # MySQL
-brew install node                   # JavaScript runtime environment
+brew install node                   # Node.js
 brew install php                    # PHP
 brew install python                 # Python
 brew install reattach-to-user-namespace         # macOS pasteboard access in tmux
@@ -85,8 +85,8 @@ brew cask install whatsapp          # WhatsApp
 brew tap homebrew/cask-fonts        # Tap Homebrew Fonts
 
 # Install
-brew cask install font-iosevka                      # Iosevka
-brew cask install font-open-sans                    # Open Sans
+brew cask install font-iosevka      # Iosevka
+brew cask install font-open-sans    # Open Sans
 
 # Cleanup
 brew cask cleanup                   # Remove cached downloads and tracker symlinks
