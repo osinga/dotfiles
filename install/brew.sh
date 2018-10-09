@@ -56,7 +56,6 @@ brew tap homebrew/cask              # Tap Homebrew Cask
 # Install
 brew cask install 1password         # 1Password
 brew cask install alfred            # Alfred
-brew cask install appcleaner        # AppCleaner
 brew cask install calibre           # Calibre
 brew cask install firefox           # Firefox
 brew cask install google-backup-and-sync    # Google Backup and Sync
