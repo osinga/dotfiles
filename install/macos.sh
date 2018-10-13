@@ -54,6 +54,9 @@ defaults write com.apple.Screensaver askForPasswordDelay -int 0
 # Show the battery percentage in the menu bar
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 
+# Select dark mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
