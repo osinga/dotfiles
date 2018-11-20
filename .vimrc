@@ -100,6 +100,7 @@ set foldmethod=indent               " Fold based on indentation
 
 " Insert
 set showmatch                       " Briefly show matching bracket on insert
+set textwidth=100                   " Wrap inserted text longer than 100 characters
 
 " Lines
 set number                          " Show line numbers
