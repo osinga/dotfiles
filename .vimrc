@@ -16,6 +16,7 @@ Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
 Plug 'junegunn/gv.vim'                  " Git commit browser
 Plug 'junegunn/vim-easy-align'          " Align text
+Plug 'metakirby5/codi.vim'              " Interactive scratchpad
 Plug 'ntpeters/vim-better-whitespace'   " Show trailing whitespace
 Plug 'scrooloose/nerdcommenter'         " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer

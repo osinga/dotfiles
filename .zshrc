@@ -40,6 +40,18 @@ alias update='~/install/update.sh'
 # Add Hub sugar to Git
 eval "$(hub alias -s)"
 
+# Open Vim with Codi
+# Usage: codi [filetype]
+function codi() {
+    vim -c "
+        highlight NonText ctermfg=0
+        let g:codi#rightsplit=0
+        set bt=nofile showtabline=0
+        startinsert
+        Codi ${1:-javascript}
+    "
+}
+
 
 
 ################################################################################
