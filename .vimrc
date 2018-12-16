@@ -210,13 +210,13 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " NERDTree
-nnoremap <leader>k :NERDTreeToggle<cr>
+nnoremap <silent> <leader>k :NERDTreeToggle<cr>
 
 " fzf
-nnoremap <silent> <Leader>a :Ag<cr>
-nnoremap <silent> <Leader>b :Buffers<cr>
-nnoremap <silent> <Leader>f :Files<cr>
-nnoremap <silent> <Leader>g :BCommits<cr>
+nnoremap <silent> <leader>a :Ag<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>g :BCommits<cr>
 
 " Reselect last inserted text
 nnoremap gp `[v`]
