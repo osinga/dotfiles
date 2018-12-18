@@ -96,8 +96,8 @@ set wildmenu                        " Enable command line completion
 set wildmode=longest,full           " 1 longest common string, 2 next full match
 
 " Folding
-set foldenable                      " Close folds by default
 set foldmethod=indent               " Fold based on indentation
+set nofoldenable                    " Open folds by default
 
 " Insert
 set showmatch                       " Briefly show matching bracket on insert
