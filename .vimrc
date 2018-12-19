@@ -57,12 +57,12 @@ let g:gitgutter_sign_modified_removed = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
-" NERD Commenter
+" NERDCommenter
 let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
 
-" NERD Tree
-let NERDTreeIgnore = ['\.DS_Store$']    " Hide certain files in NERDTree
-let NERDTreeShowHidden = 1              " Show hidden files in NERDTree
+" NERDTree
+let NERDTreeIgnore = ['\.DS_Store$']    " Files to hide
+let NERDTreeShowHidden = 1              " Show hidden files
 
 " Tabline
 let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
@@ -123,7 +123,7 @@ set smartcase                       " Don't ignore case if pattern has uppercase
 set splitbelow                      " Open horizontal splits on the bottom
 set splitright                      " Open vertical splits on the right
 
-" Statusline
+" Status line
 set laststatus=2                    " Always show the statusline
 set noshowmode                      " Hide the default mode indicator
 set showcmd                         " Show (partial) commands in statusline
@@ -140,11 +140,14 @@ set tabstop=4                       " Use 4 spaces for tabs
 " Autocommands                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd FocusLost * :silent! wall   " Save when losing focus
+" Save when losing focus
+autocmd FocusLost * :silent! wall
 
-autocmd BufWritePre * StripWhitespace   " Remove trailing whitespace on save
+" Remove trailing whitespace on save
+autocmd BufWritePre * StripWhitespace
 
-augroup CursorLine                  " Show cursor line in active window only
+" Show cursor line in active window only
+augroup CursorLine
     autocmd!
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
@@ -203,8 +206,6 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " NERDTree
 nnoremap <silent> <leader>k :NERDTreeToggle<cr>
@@ -219,15 +220,14 @@ nnoremap <silent> <leader>g :BCommits<cr>
 nnoremap gp `[v`]
 
 " Hide search results
-nnoremap <leader>n :noh<cr>
+nnoremap <silent> <leader>n :noh<cr>
 
 " Start EasyAlign in normal mode and visual mode
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
-" Faster write/quit
+" Faster write
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
 
 " Use ctrl-[hjkl] to move between split panes
 nnoremap <C-h> <C-w><C-h>
