@@ -37,17 +37,14 @@ call plug#end()
 " Configurations                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Theme
-if (has('autocmd') && !has('gui_running'))
-    " Remove the background in the Terminal
-    let s:white = { 'gui': '#ABB2BF', 'cterm': '145', 'cterm16' : '7' }
-    autocmd ColorScheme * call onedark#set_highlight('Normal', { 'fg': s:white })
-else
-    " Set the font to use in the GUI
+" Styling
+if (has('gui_running'))
     set guifont=Iosevka\ Term\ Light:h14
 end
 
-colorscheme onedark                     " Set the syntax to One Dark
+let g:onedark_termcolors = 16
+
+colorscheme onedark                     " Set the color scheme to One Dark
 
 " Airline
 let g:airline_skip_empty_sections = 1   " Do not show empty sections

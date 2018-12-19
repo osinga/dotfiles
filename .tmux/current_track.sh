@@ -1,24 +1,23 @@
 #!/bin/bash
-# Source: https://www.tylerewing.co/tmux-now-playing
 
 CURRENT_TRACK=$(osascript <<EOF
-set spotifyState to false
+set SpotifyState to false
 
-if appIsRunning("Spotify") then
-    tell application "Spotify" to set spotifyState to (player state as text)
+if AppIsRunning("Spotify") then
+    tell application "Spotify" to set SpotifyState to (player state as text)
 end if
 
-if spotifyState is equal to "playing" then
+if SpotifyState is equal to "playing" then
     tell application "Spotify"
-        set trackName to name of current track
-        set artistName to artist of current track
-        return artistName & " - " & trackName & " · "
+        set TrackName to name of current track
+        set ArtistName to artist of current track
+        return "♫ " & ArtistName & " - " & TrackName & " · "
     end tell
 end if
 
-on appIsRunning(appName)
-    tell application "System Events" to (name of processes) contains appName
-end appIsRunning
+on AppIsRunning(AppName)
+    tell application "System Events" to (name of processes) contains AppName
+end AppIsRunning
 
 EOF)
 

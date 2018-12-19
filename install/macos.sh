@@ -183,7 +183,7 @@ tell application "Terminal"
     local AllOpenedWindows
     local WindowID
 
-    set ThemeName to "osinga"
+    set ThemeName to "One Dark"
 
     -- Get the IDs of all open Terminal windows
     set InitiallyOpenedWindows to id of every window

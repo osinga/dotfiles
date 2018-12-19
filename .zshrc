@@ -61,7 +61,7 @@ function codi() {
 # fzf
 export FZF_COMPLETION_OPTS='--preview "cat {}"'     # Add a preview window
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_COMMAND='ag -g ""'   # Set ag as the default source
+export FZF_DEFAULT_COMMAND='ag -g ""'               # Set the default source
 
 # Paths
 export PATH=/usr/local/bin:$PATH
@@ -70,15 +70,15 @@ export PATH=/usr/local/opt/curl/bin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
 
 # Terminal
-export CLICOLOR=1                   # Turn colors on
-export EDITOR=/usr/local/bin/vim    # Set the default editor
-export KEYTIMEOUT=1                 #  Kill the lag
-export LSCOLORS=GxFxCxDxBxegedabagaced  # Customize the colors
-export VISUAL="$EDITOR"             # Set the default editor
+export CLICOLOR=1                                   # Turn colors on
+export EDITOR=/usr/local/bin/vim                    # Set the default editor
+export KEYTIMEOUT=1                                 # Kill the lag
+export LSCOLORS=GxFxCxDxBxegedabagaced              # Customize the colors
+export VISUAL="$EDITOR"                             # Set the default editor
 
-# Vi-mode
+# vi-mode
 autoload -U colors && colors
-export MODE_INDICATOR="%{$fg_bold[green]%}[NORMAL]%{$reset_color%}"
+export MODE_INDICATOR="%{$bg[green]%}%{$fg_bold[black]%} NORMAL %{$reset_color%}"
 
 
 
