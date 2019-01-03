@@ -10,5 +10,5 @@ Based on [this](https://developer.atlassian.com/blog/2016/02/best-way-to-store-d
 
 2. Install the dotfiles:
     ```sh
-    curl https://raw.githubusercontent.com/osinga/dotfiles/master/install/install.sh | sh
+    curl https://raw.githubusercontent.com/osinga/dotfiles/master/src/install.sh | sh
     ```
