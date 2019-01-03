@@ -19,7 +19,7 @@ Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'metakirby5/codi.vim'              " Interactive scratchpad
 Plug 'scrooloose/nerdcommenter'         " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
-Plug 'sheerun/vim-polyglot'             " Collection of sytaxes
+Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
 Plug 'tmux-plugins/vim-tmux-focus-events'   " Restore focus lost/gained
 Plug 'tpope/vim-fugitive'               " Git plugin
 Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
