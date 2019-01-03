@@ -17,7 +17,6 @@ Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
 Plug 'junegunn/gv.vim'                  " Git commit browser
 Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'metakirby5/codi.vim'              " Interactive scratchpad
-Plug 'ntpeters/vim-better-whitespace'   " Show trailing whitespace
 Plug 'scrooloose/nerdcommenter'         " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
 Plug 'sheerun/vim-polyglot'             " Collection of sytaxes
@@ -45,6 +44,12 @@ end
 let g:onedark_termcolors = 16
 
 colorscheme onedark                     " Set the color scheme to One Dark
+
+" ALE
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
 
 " Airline
 let g:airline_skip_empty_sections = 1   " Do not show empty sections
@@ -142,9 +147,6 @@ set tabstop=4                       " Use 4 spaces for tabs
 
 " Save when losing focus
 autocmd FocusLost * :silent! wall
-
-" Remove trailing whitespace on save
-autocmd BufWritePre * StripWhitespace
 
 " Show cursor line in active window only
 augroup CursorLine
