@@ -35,7 +35,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias trvl='ssh forge@52.214.228.4'
 
 # Update macOS, Homebrew, Node, and Vim
-alias update='~/install/update.sh'
+alias update='~/src/update.sh'
 
 # Add Hub sugar to Git
 eval "$(hub alias -s)"
