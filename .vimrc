@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
 Plug 'tmux-plugins/vim-tmux-focus-events'   " Restore focus lost/gained
 Plug 'tpope/vim-fugitive'               " Git plugin
+Plug 'tpope/vim-rhubarb'                " GitHub plugin for vim-fugitive
 Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
