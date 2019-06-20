@@ -31,9 +31,6 @@ alias dev='cd ~/Development'
 # Direct access to the Dotfiles repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# SSH into the TRVL server
-alias trvl='ssh forge@52.214.228.4'
-
 # Update macOS, Homebrew, Node, and Vim
 alias update='~/src/update.sh'
 
