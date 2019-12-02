@@ -65,6 +65,7 @@ brew cask install insomnia          # Insomnia
 brew cask install karabiner-elements        # Karabiner Elements
 brew cask install ngrok             # ngrok
 brew cask install opera             # Opera
+brew cask install pock              # Pock
 brew cask install robo-3t           # Robo 3T
 brew cask install sequel-pro        # Sequel Pro
 brew cask install sketch            # Sketch

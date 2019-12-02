@@ -39,6 +39,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
+# 13: Lock Screen
 
 # Bottom left screen corner → Put display to sleep
 defaults write com.apple.Dock wvous-bl-corner -int 10
