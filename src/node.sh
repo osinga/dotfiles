@@ -9,8 +9,7 @@ npm install -g npm@latest           # Update to the latest version of npm
 
 # Install
 npm install -g @feathersjs/cli      # Feathers CLI
-npm install -g @vue/cli             # Vue CLI
-npm install -g nodemon              # Nodemon
-npm install -g now                  # Now
-npm install -g pm2                  # PM2
+npm install -g eslint               # ESLint
+npm install -g faker-cli            # Faker
 npm install -g typescript           # TypeScript
+npm install -g vercel               # Vercel
