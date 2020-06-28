@@ -4,7 +4,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Xuyuanp/nerdtree-git-plugin'      " Git plugin for NERDTree
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
 Plug 'ap/vim-css-color'                 " Color keyword highlighting
@@ -12,11 +11,12 @@ Plug 'bling/vim-airline'                " Status line
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
 Plug 'joshdick/onedark.vim'             " One Dark theme
-Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy finder
 Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
 Plug 'junegunn/gv.vim'                  " Git commit browser
 Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'metakirby5/codi.vim'              " Interactive scratchpad
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
 Plug 'scrooloose/nerdcommenter'         " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
@@ -27,7 +27,6 @@ Plug 'tpope/vim-rhubarb'                " GitHub plugin for vim-fugitive
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
 Plug 'vim-airline/vim-airline-themes'   " Themes for Airline
-Plug 'w0rp/ale'                         " Asynchronous Lint Engine
 
 call plug#end()
 
@@ -46,15 +45,19 @@ let g:onedark_termcolors = 16
 
 colorscheme onedark                     " Set the color scheme to One Dark
 
-" ALE
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
-
 " Airline
-let g:airline_skip_empty_sections = 1   " Do not show empty sections
-let g:airline_theme = 'onedark'         " Set the Airline theme to One Dark
+let g:airline#extensions#coc#enabled = 1    " Show Coc errors
+let g:airline_skip_empty_sections = 1       " Do not show empty sections
+let g:airline_theme = 'onedark'             " Set the Airline theme to One Dark
+
+" Coc
+let g:coc_global_extensions = [
+    \ 'coc-css',
+    \ 'coc-eslint',
+    \ 'coc-html',
+    \ 'coc-json',
+    \ 'coc-tsserver',
+    \ ]
 
 " GitGutter
 let g:gitgutter_sign_added = '∙'
@@ -76,9 +79,6 @@ let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
 
 " Vim Vue
 let g:vue_disable_pre_processors = 1    " Disable checking for preprocessors
-
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1  " Hide preview after leaving insert
 
 " Accessibility
 set clipboard=unnamed               " Use the macOS clipboard
@@ -110,6 +110,7 @@ set textwidth=120                   " Wrap inserted text longer than 120 charact
 set number                          " Show line numbers
 set relativenumber                  " Use relative numbers
 set scrolloff=3                     " Always keep 3 lines above/below the curser
+set signcolumn=yes                  " Always show the sign column
 
 " Performance
 set lazyredraw                      " No redrawing during macros/registers
@@ -219,33 +220,72 @@ nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>g :BCommits<cr>
 
-" Reselect last inserted text
-nnoremap gp `[v`]
+" Confirm completion
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Hide search results
 nnoremap <silent> <leader>n :noh<cr>
 
-" Start EasyAlign in normal mode and visual mode
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-
-" Faster write
-nnoremap <leader>w :w<cr>
-
-" Use ctrl-[hjkl] to move between split panes
+" Move between split panes
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
-" If no count is given, allow to navigate to line breaks with j and k
+" Navigate code
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
+
+" Navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Navigate to broken lines
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 noremap gj j
 noremap gk k
 
-" use [ (-) and ] (+) to resize h(eight) and w(idth)
+" Rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+
+" Reselect last inserted text
+nnoremap gp `[v`]
+
+" Resize split panes
 nnoremap [h :resize -5<cr>
 nnoremap ]h :resize +5<cr>
 nnoremap [w :vertical resize -5<cr>
 nnoremap ]w :vertical resize +5<cr>
+
+" Show documentation
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+" Start EasyAlign in normal mode and visual mode
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+
+" Trigger completion and navigate
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Write
+nnoremap <leader>w :w<cr>
