@@ -41,6 +41,7 @@ if (has('gui_running'))
     set guifont=Iosevka\ Term\ Light:h14
 end
 
+let g:onedark_hide_endofbuffer = 1
 let g:onedark_termcolors = 16
 let g:onedark_terminal_italics = 1
 
@@ -61,6 +62,7 @@ let g:coc_global_extensions = [
     \ ]
 
 " GitGutter
+let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
@@ -169,7 +171,7 @@ command! -bang -nargs=* Ag
 " Mappings                                                                     "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use space as the leader through '\' so it still shows for 'showcmd'
+" Use space as the leader through `\` so it still shows for `showcmd`
 let mapleader = '\'
 nmap <space> \
 
@@ -185,19 +187,19 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
 " NERDTree
-nnoremap <silent> <leader>k :NERDTreeToggle<cr>
+nnoremap <silent> <leader>k :NERDTreeToggle<CR>
 
 " fzf
-nnoremap <silent> <leader>a :Ag<cr>
-nnoremap <silent> <leader>b :Buffers<cr>
-nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>g :BCommits<cr>
+nnoremap <silent> <leader>a :Ag<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>g :BCommits<CR>
 
 " Confirm completion
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Hide search results
-nnoremap <silent> <leader>n :noh<cr>
+nnoremap <silent> <leader>n :noh<CR>
 
 " Move between split panes
 nnoremap <C-h> <C-w><C-h>
@@ -228,10 +230,10 @@ nmap <leader>rn <Plug>(coc-rename)
 nnoremap gp `[v`]
 
 " Resize split panes
-nnoremap [h :resize -5<cr>
-nnoremap ]h :resize +5<cr>
-nnoremap [w :vertical resize -5<cr>
-nnoremap ]w :vertical resize +5<cr>
+nnoremap [h :resize -5<CR>
+nnoremap ]h :resize +5<CR>
+nnoremap [w :vertical resize -5<CR>
+nnoremap ]w :vertical resize +5<CR>
 
 " Show documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -261,4 +263,4 @@ function! s:check_back_space() abort
 endfunction
 
 " Write
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :w<CR>
