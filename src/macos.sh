@@ -177,6 +177,9 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true
 # Hide the line marks
 defaults write com.apple.Terminal ShowLineMarks -bool false
 
+# Enable italics
+tic xterm-256color-italic.terminfo
+
 # Set my custom theme as the default
 osascript <<EOD
 tell application "Terminal"

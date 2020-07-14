@@ -68,6 +68,7 @@ export CLICOLOR=1                                   # Turn colors on
 export EDITOR=/usr/local/bin/vim                    # Set the default editor
 export KEYTIMEOUT=1                                 # Kill the lag
 export LSCOLORS=GxFxCxDxBxegedabagaced              # Customize the colors
+export TERM=xterm-256color-italic                   # Enable italics
 export VISUAL="$EDITOR"                             # Set the default editor
 
 # vi-mode
