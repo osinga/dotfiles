@@ -13,9 +13,11 @@ Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
 Plug 'joshdick/onedark.vim'             " One Dark theme
 Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy finder
 Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
+Plug 'junegunn/goyo.vim'                " Distraction-free writing
 Plug 'junegunn/gv.vim'                  " Git commit browser
 Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'metakirby5/codi.vim'              " Interactive scratchpad
+Plug 'michal-h21/vim-zettel'            " Zettelkasten for Vimwiki
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
 Plug 'scrooloose/nerdcommenter'         " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
@@ -27,6 +29,7 @@ Plug 'tpope/vim-rhubarb'                " GitHub plugin for vim-fugitive
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
 Plug 'vim-airline/vim-airline-themes'   " Themes for Airline
+Plug 'vimwiki/vimwiki'                  " Personal wiki
 
 call plug#end()
 
@@ -37,13 +40,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Styling
-if (has('gui_running'))
-    set guifont=Iosevka\ Term\ Light:h14
-end
-
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_termcolors = 16
-let g:onedark_terminal_italics = 1
+let g:onedark_hide_endofbuffer = 1      " Hide end-of-buffer lines (~)
+let g:onedark_termcolors = 16           " Use terminal's native 16 colors
+let g:onedark_terminal_italics = 1      " Enable italics
 
 colorscheme onedark                     " Set the color scheme to One Dark
 
@@ -62,7 +61,7 @@ let g:coc_global_extensions = [
     \ ]
 
 " GitGutter
-let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_preview_win_floating = 1    " Use popup window for hunk previews
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
@@ -79,6 +78,22 @@ let NERDTreeShowHidden = 1              " Show hidden files
 " Tabline
 let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
 let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
+
+" Vimwiki
+let g:vimwiki_list = [{
+    \ 'auto_diary_index': 1,
+    \ 'diary_header': 'Journal',
+    \ 'diary_index': 'README',
+    \ 'diary_rel_path': 'journal/',
+    \ 'ext': '.md',
+    \ 'index': 'notes/README',
+    \ 'path': '~/Documents/Wiki/',
+    \ 'syntax': 'markdown',
+    \ }]
+let g:vimwiki_markdown_link_ext = 1 " Include Markdown extensions
+
+" vim-zettel
+let g:zettel_format = '%Y%m%d%H%M'  " Filename format
 
 " Accessibility
 set clipboard=unnamed               " Use the macOS clipboard
@@ -104,7 +119,6 @@ set nofoldenable                    " Open folds by default
 
 " Insert
 set showmatch                       " Briefly show matching bracket on insert
-set textwidth=120                   " Wrap inserted text longer than 120 characters
 
 " Lines
 set number                          " Show line numbers
@@ -147,6 +161,24 @@ set tabstop=4                       " Use 4 spaces for tabs
 " Autocommands                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Additional Goyo configuration
+function! s:goyo_enter()
+    set eventignore=FocusGained
+    set linebreak
+    set noshowcmd
+    set spell
+endfunction
+
+function! s:goyo_leave()
+    set eventignore=
+    set nolinebreak
+    set showcmd
+    set nospell
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " Save when losing focus
 autocmd FocusLost * :silent! wall
 
@@ -164,6 +196,9 @@ command! -bang -nargs=? -complete=dir Files
 " Show fzf Ag results with a preview window
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" Use Markdown syntax for Vimwiki files
+autocmd BufWinEnter *.md setlocal syntax=markdown
 
 
 
@@ -211,7 +246,7 @@ nnoremap <C-l> <C-w><C-l>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 
 " Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -261,6 +296,3 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" Write
-nnoremap <leader>w :w<CR>
