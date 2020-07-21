@@ -34,6 +34,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Update macOS, Homebrew, Node, and Vim
 alias update='~/src/update.sh'
 
+# Vim-style exit
+alias :q='exit'
+
 # Open Vim with Codi
 # Usage: codi [filetype]
 function codi() {
