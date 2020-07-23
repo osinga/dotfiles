@@ -9,7 +9,7 @@ git clone --bare https://github.com/osinga/dotfiles.git ~/.dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Checkout the content from the bare repository
-dotfiles checkout
+dotfiles checkout --force
 
 # Set the `showUntrackedFiles` flag for this clone
 dotfiles config --local status.showUntrackedFiles no
@@ -24,6 +24,6 @@ dotfiles config --local status.showUntrackedFiles no
 sudo softwareupdate -i -a           # Update App Store applications
 
 # Specific
-source brew.sh                      # Install Homebrew and related components
-source macos.sh                     # Set macOS specific settings
-source node.sh                      # Update npm and install global packages
+source ~/src/brew.sh                # Install Homebrew and related components
+source ~/src/macos.sh               # Set macOS specific settings
+source ~/src/node.sh                # Update npm and install global packages
