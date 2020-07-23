@@ -1,11 +1,9 @@
-#!/bin/bash
-
 ################################################################################
 # Homebrew                                                                     #
 ################################################################################
 
 # Install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Update
 brew update                         # Update to the latest version of Homebrew
@@ -18,24 +16,19 @@ brew upgrade                        # Upgrade any already-installed formulae
 ################################################################################
 
 # Install
-brew install cmake                  # Install CMake
-brew install coreutils              # Install GNU command line tools
-brew install curl                   # Transfer data
 brew install fzf                    # Fuzzy file finder
 brew install git                    # Version control
 brew install github/gh/gh           # GitHub CLI
 brew install httpie                 # Modern HTTP client
 brew install jq                     # JSON processor
-brew install macvim --with-override-system-vim  # Use MacVim in the terminal
 brew install mysql                  # MySQL
 brew install node                   # Node.js
-brew install php                    # PHP
-brew install python                 # Python
-brew install reattach-to-user-namespace         # macOS pasteboard access in tmux
+brew install postgresql             # PostgresQL
+brew install reattach-to-user-namespace     # macOS pasteboard access in tmux
 brew install the_silver_searcher    # Search through source code
 brew install tldr                   # Simplified man pages
 brew install tmux                   # Terminal multiplexer
-brew install wget                   # Download Web files
+brew install vim                    # Use up-to-date vim
 brew install zsh                    # Alternative shell
 brew install zsh-completions        # Additional Zsh completions
 
@@ -61,14 +54,16 @@ brew cask install imageoptim        # ImageOptim
 brew cask install insomnia          # Insomnia
 brew cask install karabiner-elements    # Karabiner Elements
 brew cask install keyboard-maestro  # Keyboard Maestro
-brew cask install opera             # Opera
+brew cask install notion            # Notion
+brew cask install obsidian          # Obsidian
 brew cask install pock              # Pock
 brew cask install sketch            # Sketch
 brew cask install slack             # Slack
 brew cask install soda-player       # Soda Player
+brew cask install spotify           # Spotify
 brew cask install tableplus         # TablePlus
 brew cask install telegram          # Telegram
-brew cask install torbrowser        # TorBrowser
+brew cask install tor-browser       # Tor Browser
 brew cask install transmission      # Transmission
 brew cask install visual-studio-code    # Visual Studio Code
 brew cask install whatsapp          # WhatsApp
@@ -100,3 +95,4 @@ brew tap homebrew/services          # Tap Homebrew Services
 
 # Start
 brew services start mysql           # MySQL
+brew services start postgresql      # PostgresQL

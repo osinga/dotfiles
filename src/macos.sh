@@ -1,5 +1,3 @@
-#!/bin/bash
-
 ################################################################################
 # Setup                                                                        #
 ################################################################################
@@ -215,10 +213,6 @@ tell application "Terminal"
     end repeat
 end tell
 EOD
-
-# Set zsh as the default shell
-echo $(which zsh) >> /etc/shells
-chsh -s $(which zsh)
 
 # Install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

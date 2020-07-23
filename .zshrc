@@ -63,8 +63,6 @@ export FZF_DEFAULT_COMMAND='ag -g ""'               # Set the default source
 # Paths
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/opt/curl/bin:$PATH
-export PATH=~/.composer/vendor/bin:$PATH
 
 # Terminal
 export CLICOLOR=1                                   # Turn colors on
