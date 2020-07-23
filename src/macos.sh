@@ -53,9 +53,6 @@ defaults write com.apple.Screensaver askForPasswordDelay -int 0
 # Show the battery percentage in the menu bar
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 
-# Select dark mode
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
-
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
@@ -133,8 +130,8 @@ defaults write com.apple.Finder FXPreferredGroupBy -string "Kind"
 # Remove items from the Trash after 30 days
 defaults write com.apple.Finder FXRemoveOldTrashItems -bool true
 
-# Set Desktop as the default location for new Finder windows
-defaults write com.apple.Finder NewWindowTargetPath -string "file://${HOME}/Google Drive/"
+# Set Documents as the default location for new Finder windows
+defaults write com.apple.Finder NewWindowTargetPath -string "file://${HOME}/Documents/"
 
 # Hide icons for hard drives, removable media, and servers on the desktop
 defaults write com.apple.Finder ShowExternalHardDrivesOnDesktop -bool false
@@ -176,7 +173,7 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true
 defaults write com.apple.Terminal ShowLineMarks -bool false
 
 # Enable italics
-tic xterm-256color-italic.terminfo
+tic ~/src/xterm-256color-italic.terminfo
 
 # Set my custom theme as the default
 osascript <<EOD
@@ -191,7 +188,7 @@ tell application "Terminal"
     set InitiallyOpenedWindows to id of every window
 
     -- Add the custom theme
-    do shell script "open '$HOME/install/" & ThemeName & ".terminal'"
+    do shell script "open '~/src/" & ThemeName & ".terminal'"
 
     -- Wait to ensure the theme has been hadded
     delay 1
@@ -215,7 +212,8 @@ end tell
 EOD
 
 # Install zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 
 
