@@ -40,7 +40,7 @@
                         ]
                     },
                     {
-                        "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
+                        "description": "Change caps_lock to command+control+option+shift (escape when pressed alone)",
                         "manipulators": [
                             {
                                 "from": {
@@ -71,7 +71,45 @@
                         ]
                     },
                     {
-                        "description": "Change fn + H/J/K/L to Arrow Keys",
+                        "description": "Disable command+control+option+shift+w (this triggers Wireless Diagnostics)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "control",
+                                            "option",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Disable command+control+option+shift+> (this triggers sysdiagnose)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "control",
+                                            "option",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change fn + h/j/k/l to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
