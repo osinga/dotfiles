@@ -40,6 +40,10 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Styling
+let &t_EI = "\<Esc>[2 q"                " Normal mode cursor
+let &t_SI = "\<Esc>[5 q"                " Insert mode cursor
+let &t_SR = "\<Esc>[3 q"                " Replace mode cursor
+
 let g:onedark_hide_endofbuffer = 1      " Hide end-of-buffer lines (~)
 let g:onedark_termcolors = 16           " Use terminal's native 16 colors
 let g:onedark_terminal_italics = 1      " Enable italics
