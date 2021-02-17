@@ -144,6 +144,9 @@ set ignorecase                      " Ignore case in search patterns
 set incsearch                       " Show live search results while typing
 set smartcase                       " Don't ignore case if pattern has uppercase
 
+" Spelling
+set spelllang=en_us,nl              " Define the spell checking languages
+
 " Splits
 set splitbelow                      " Open horizontal splits on the bottom
 set splitright                      " Open vertical splits on the right
@@ -155,9 +158,9 @@ set showcmd                         " Show (partial) commands in statusline
 
 " Tabs
 set expandtab                       " Use spaces when tab is inserted
+set shiftround                      " Round indent to multiple of `shiftwidth`
 set shiftwidth=4                    " Use 4 spaces for auto (auto)indent
 set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
-set tabstop=4                       " Use 4 spaces for tabs
 
 
 
@@ -204,6 +207,12 @@ command! -bang -nargs=* Ag
 " Use Markdown syntax for Vimwiki files
 autocmd BufWinEnter *.md setlocal syntax=markdown
 
+" Tweak formatting in Markdown files
+augroup Markdown
+    autocmd!
+    autocmd FileType markdown setlocal linebreak
+augroup END
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -212,33 +221,33 @@ autocmd BufWinEnter *.md setlocal syntax=markdown
 
 " Use space as the leader through `\` so it still shows for `showcmd`
 let mapleader = '\'
-nmap <space> \
+nmap <Space> \
 
 " Airline
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <Leader>1 <Plug>AirlineSelectTab1
+nmap <Leader>2 <Plug>AirlineSelectTab2
+nmap <Leader>3 <Plug>AirlineSelectTab3
+nmap <Leader>4 <Plug>AirlineSelectTab4
+nmap <Leader>5 <Plug>AirlineSelectTab5
+nmap <Leader>6 <Plug>AirlineSelectTab6
+nmap <Leader>7 <Plug>AirlineSelectTab7
+nmap <Leader>8 <Plug>AirlineSelectTab8
+nmap <Leader>9 <Plug>AirlineSelectTab9
 
 " NERDTree
 nnoremap <silent> <leader>k :NERDTreeToggle<CR>
 
 " fzf
-nnoremap <silent> <leader>a :Ag<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>g :BCommits<CR>
+nnoremap <silent> <Leader>a :Ag<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>g :BCommits<CR>
 
 " Confirm completion
 inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Hide search results
-nnoremap <silent> <leader>n :noh<CR>
+nnoremap <silent> <Leader>n :noh<CR>
 
 " Move between split panes
 nnoremap <C-h> <C-w><C-h>
@@ -263,7 +272,7 @@ noremap gj j
 noremap gk k
 
 " Rename symbol
-nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
 " Reselect last inserted text
 nnoremap gp `[v`]
@@ -273,6 +282,18 @@ nnoremap [h :resize -5<CR>
 nnoremap ]h :resize +5<CR>
 nnoremap [w :vertical resize -5<CR>
 nnoremap ]w :vertical resize +5<CR>
+
+" Search spelling suggestions
+function! s:SuggestSpelling()
+    function! Sink(word)
+        exe 'normal! "_ciw' . a:word
+    endfunction
+
+    let suggestions = spellsuggest(expand('<cword>'), 100)
+    return fzf#run(fzf#wrap({ 'source': suggestions, 'sink': function('Sink') }))
+endfunction
+
+nnoremap z= :call <SID>SuggestSpelling()<CR>
 
 " Show documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
