@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'Xuyuanp/nerdtree-git-plugin'      " Git plugin for NERDTree
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
 Plug 'ap/vim-css-color'                 " Color keyword highlighting
-Plug 'bling/vim-airline'                " Status line
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
 Plug 'joshdick/onedark.vim'             " One Dark theme
@@ -28,6 +27,7 @@ Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
 Plug 'tpope/vim-rhubarb'                " GitHub plugin for vim-fugitive
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
+Plug 'vim-airline/vim-airline'          " Status line
 Plug 'vim-airline/vim-airline-themes'   " Themes for Airline
 Plug 'vimwiki/vimwiki'                  " Personal wiki
 
@@ -51,9 +51,8 @@ let g:onedark_terminal_italics = 1      " Enable italics
 colorscheme onedark                     " Set the color scheme to One Dark
 
 " Airline
-let g:airline#extensions#coc#enabled = 1    " Show Coc errors
-let g:airline_skip_empty_sections = 1       " Do not show empty sections
-let g:airline_theme = 'onedark'             " Set the Airline theme to One Dark
+let g:airline_section_b = ''
+let g:airline_section_y = ''
 
 " Coc
 let g:coc_global_extensions = [
@@ -78,10 +77,6 @@ let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
 " NERDTree
 let NERDTreeIgnore = ['\.DS_Store$']    " Files to hide
 let NERDTreeShowHidden = 1              " Show hidden files
-
-" Tabline
-let g:airline#extensions#tabline#buffer_idx_mode = 1    " Show buffers
-let g:airline#extensions#tabline#enabled = 1            " Enable the tabline
 
 " Vimwiki
 let g:vimwiki_list = [{
