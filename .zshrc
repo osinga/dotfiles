@@ -56,7 +56,8 @@ function codi() {
 # fzf
 export FZF_COMPLETION_OPTS='--preview "cat {}"'     # Add a preview window
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_COMMAND='ag -g ""'               # Set the default source
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'      # Set the default source
+export FZF_DEFAULT_OPTS='--layout=reverse'          # Top to bottom
 
 # Paths
 export PATH=/usr/local/bin:$PATH
