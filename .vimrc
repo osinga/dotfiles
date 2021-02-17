@@ -6,14 +6,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Xuyuanp/nerdtree-git-plugin'      " Git plugin for NERDTree
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
-Plug 'ap/vim-css-color'                 " Color keyword highlighting
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
 Plug 'joshdick/onedark.vim'             " One Dark theme
 Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy finder
 Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
 Plug 'junegunn/goyo.vim'                " Distraction-free writing
-Plug 'junegunn/gv.vim'                  " Git commit browser
 Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'metakirby5/codi.vim'              " Interactive scratchpad
 Plug 'michal-h21/vim-zettel'            " Zettelkasten for Vimwiki
@@ -21,14 +19,11 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
 Plug 'scrooloose/nerdcommenter'         " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
-Plug 'tmux-plugins/vim-tmux-focus-events'   " Restore focus lost/gained
 Plug 'tpope/vim-fugitive'               " Git plugin
 Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
-Plug 'tpope/vim-rhubarb'                " GitHub plugin for vim-fugitive
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
 Plug 'vim-airline/vim-airline'          " Status line
-Plug 'vim-airline/vim-airline-themes'   " Themes for Airline
 Plug 'vimwiki/vimwiki'                  " Personal wiki
 
 call plug#end()
@@ -44,15 +39,16 @@ let &t_EI = "\<Esc>[2 q"                " Normal mode cursor
 let &t_SI = "\<Esc>[5 q"                " Insert mode cursor
 let &t_SR = "\<Esc>[3 q"                " Replace mode cursor
 
-let g:onedark_hide_endofbuffer = 1      " Hide end-of-buffer lines (~)
+let &fillchars ..= ',eob: '             " Hide end-of-buffer lines (~)
+
 let g:onedark_termcolors = 16           " Use terminal's native 16 colors
 let g:onedark_terminal_italics = 1      " Enable italics
 
 colorscheme onedark                     " Set the color scheme to One Dark
 
 " Airline
-let g:airline_section_b = ''
-let g:airline_section_y = ''
+let g:airline_section_b = ''            " Hide the git information
+let g:airline_section_y = ''            " Hide the file encoding
 
 " Coc
 let g:coc_global_extensions = [
@@ -105,7 +101,6 @@ set undodir=~/.vim/undo//           " Where to store undo files
 set undofile
 
 " Buffers
-set autoread                        " Automatically refresh unedited changed files
 set hidden                          " Hide buffers instead of unloading
 
 " Command line
@@ -129,9 +124,6 @@ set signcolumn=yes                  " Always show the sign column
 set lazyredraw                      " No redrawing during macros/registers
 set notimeout                       " Do not time out mappings
 set synmaxcol=800                   " Don't highlight lines after column 800
-set ttimeout                        " Do time out key codes
-set ttimeoutlen=10                  " Wait 10 ms for a mapping to complete
-set ttyfast                         " Indicate a fast terminal connection
 
 " Search
 set hlsearch                        " Highlight all matches for previous search
@@ -147,7 +139,6 @@ set splitbelow                      " Open horizontal splits on the bottom
 set splitright                      " Open vertical splits on the right
 
 " Status line
-set laststatus=2                    " Always show the statusline
 set noshowmode                      " Hide the default mode indicator
 set showcmd                         " Show (partial) commands in statusline
 
@@ -191,14 +182,6 @@ augroup CursorLine
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" Show fzf Files results with a preview window
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-" Show fzf Ag results with a preview window
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
-
 " Use Markdown syntax for Vimwiki files
 autocmd BufWinEnter *.md setlocal syntax=markdown
 
@@ -215,19 +198,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use space as the leader through `\` so it still shows for `showcmd`
-let mapleader = '\'
 nmap <Space> \
-
-" Airline
-nmap <Leader>1 <Plug>AirlineSelectTab1
-nmap <Leader>2 <Plug>AirlineSelectTab2
-nmap <Leader>3 <Plug>AirlineSelectTab3
-nmap <Leader>4 <Plug>AirlineSelectTab4
-nmap <Leader>5 <Plug>AirlineSelectTab5
-nmap <Leader>6 <Plug>AirlineSelectTab6
-nmap <Leader>7 <Plug>AirlineSelectTab7
-nmap <Leader>8 <Plug>AirlineSelectTab8
-nmap <Leader>9 <Plug>AirlineSelectTab9
 
 " NERDTree
 nnoremap <silent> <leader>k :NERDTreeToggle<CR>
@@ -242,19 +213,12 @@ nnoremap <silent> <Leader>g :BCommits<CR>
 inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Hide search results
-nnoremap <silent> <Leader>n :noh<CR>
-
-" Move between split panes
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
+nnoremap <silent> <Leader>n :nohlsearch<CR>
 
 " Navigate code
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gt <Plug>(coc-type-definition)
 
 " Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -265,9 +229,6 @@ nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 noremap gj j
 noremap gk k
-
-" Rename symbol
-nmap <Leader>rn <Plug>(coc-rename)
 
 " Reselect last inserted text
 nnoremap gp `[v`]

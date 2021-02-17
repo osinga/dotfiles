@@ -27,9 +27,9 @@ ZSH_THEME='osinga'                  # Set the terminal theme
 alias dev='cd ~/Development'
 
 # Direct access to the Dotfiles repository
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-# Update macOS, Homebrew, Node, and Vim
+# Update all apps, tools, and plugins
 alias update='~/src/update.sh'
 
 # Vim-style exit

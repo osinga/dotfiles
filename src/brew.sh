@@ -20,7 +20,6 @@ brew install jq                             # JSON processor
 brew install mysql                          # MySQL
 brew install node                           # Node.js
 brew install postgresql                     # PostgresQL
-brew install reattach-to-user-namespace     # macOS pasteboard access in tmux
 brew install the_silver_searcher            # Search through source code
 brew install tldr                           # Simplified man pages
 brew install tmux                           # Terminal multiplexer
