@@ -12,20 +12,20 @@
 ################################################################################
 
 # Install
-brew install fzf                    # Fuzzy file finder
-brew install git                    # Version control
-brew install github/gh/gh           # GitHub CLI
-brew install httpie                 # Modern HTTP client
-brew install jq                     # JSON processor
-brew install mysql                  # MySQL
-brew install node                   # Node.js
-brew install postgresql             # PostgresQL
+brew install fzf                            # Fuzzy file finder
+brew install git                            # Version control
+brew install gh                             # GitHub CLI
+brew install httpie                         # Modern HTTP client
+brew install jq                             # JSON processor
+brew install mysql                          # MySQL
+brew install node                           # Node.js
+brew install postgresql                     # PostgresQL
 brew install reattach-to-user-namespace     # macOS pasteboard access in tmux
-brew install the_silver_searcher    # Search through source code
-brew install tldr                   # Simplified man pages
-brew install tmux                   # Terminal multiplexer
-brew install vim                    # Use up-to-date vim
-brew install zsh-completions        # Additional Zsh completions
+brew install the_silver_searcher            # Search through source code
+brew install tldr                           # Simplified man pages
+brew install tmux                           # Terminal multiplexer
+brew install vim                            # Use up-to-date vim
+brew install zsh-completions                # Additional Zsh completions
 
 
 
@@ -34,27 +34,27 @@ brew install zsh-completions        # Additional Zsh completions
 ################################################################################
 
 # Install
-brew install 1password              # 1Password
-brew install adguard                # AdGuard
-brew install alfred                 # Alfred
-brew install calibre                # Calibre
-brew install firefox                # Firefox
-brew install google-chrome          # Google Chrome
-brew install imageoptim             # ImageOptim
-brew install insomnia               # Insomnia
-brew install karabiner-elements     # Karabiner Elements
-brew install keyboard-maestro       # Keyboard Maestro
-brew install notion                 # Notion
-brew install pock                   # Pock
-brew install slack                  # Slack
-brew install soda-player            # Soda Player
-brew install spotify                # Spotify
-brew install tableplus              # TablePlus
-brew install tor-browser            # Tor Browser
-brew install transmission           # Transmission
-brew install visual-studio-code     # Visual Studio Code
-brew install whatsapp               # WhatsApp
-brew install zotero                 # Zotero
+brew install --cask 1password               # 1Password
+brew install --cask adguard                 # AdGuard
+brew install --cask alfred                  # Alfred
+brew install --cask calibre                 # Calibre
+brew install --cask firefox                 # Firefox
+brew install --cask google-chrome           # Google Chrome
+brew install --cask imageoptim              # ImageOptim
+brew install --cask insomnia                # Insomnia
+brew install --cask karabiner-elements      # Karabiner Elements
+brew install --cask keyboard-maestro        # Keyboard Maestro
+brew install --cask notion                  # Notion
+brew install --cask pock                    # Pock
+brew install --cask slack                   # Slack
+brew install --cask soda-player             # Soda Player
+brew install --cask spotify                 # Spotify
+brew install --cask tableplus               # TablePlus
+brew install --cask tor-browser             # Tor Browser
+brew install --cask transmission            # Transmission
+brew install --cask visual-studio-code      # Visual Studio Code
+brew install --cask whatsapp                # WhatsApp
+brew install --cask zotero                  # Zotero
 
 
 
@@ -63,11 +63,10 @@ brew install zotero                 # Zotero
 ################################################################################
 
 # Setup
-brew tap homebrew/cask-fonts        # Tap Homebrew Fonts
+brew tap homebrew/cask-fonts                # Tap Homebrew Fonts
 
 # Install
-brew install font-iosevka           # Iosevka
-brew install font-open-sans         # Open Sans
+brew install font-iosevka                   # Iosevka
 
 
 
@@ -76,5 +75,5 @@ brew install font-open-sans         # Open Sans
 ################################################################################
 
 # Start
-brew services start mysql           # MySQL
-brew services start postgresql      # PostgresQL
+brew services start mysql                   # MySQL
+brew services start postgresql              # PostgresQL
