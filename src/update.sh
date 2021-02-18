@@ -16,3 +16,6 @@ npm update -g                       # Update all global packages
 
 # Vim
 vim +PlugUpgrade +PlugUpdate +qall  # Update vim-plug and all Vim plugins
+
+# tmux
+~/.tmux/plugins/tpm/bin/update_plugins all  # Update all tmux plugins
