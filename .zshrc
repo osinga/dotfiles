@@ -10,7 +10,6 @@ export ZSH=/Users/Osinga/.oh-my-zsh
 plugins=(
     git
     vi-mode
-    zsh-syntax-highlighting
 )
 
 # Settings
@@ -82,4 +81,5 @@ export MODE_INDICATOR="%{$bg[green]%}%{$fg_bold[black]%} NORMAL %{$reset_color%}
 ################################################################################
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

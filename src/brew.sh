@@ -25,6 +25,7 @@ brew install tldr                           # Simplified man pages
 brew install tmux                           # Terminal multiplexer
 brew install vim                            # Use up-to-date vim
 brew install zsh-completions                # Additional Zsh completions
+brew install zsh-syntax-highlighting        # Syntax highlighting for Zsh
 
 
 
