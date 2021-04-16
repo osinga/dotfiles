@@ -4,7 +4,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Xuyuanp/nerdtree-git-plugin'      " Git plugin for NERDTree
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
@@ -16,9 +15,8 @@ Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'metakirby5/codi.vim'              " Interactive scratchpad
 Plug 'michal-h21/vim-zettel'            " Zettelkasten for Vimwiki
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
-Plug 'scrooloose/nerdcommenter'         " Easy commenting
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " File explorer
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
+Plug 'tpope/vim-commentary'             " Comment stuff out
 Plug 'tpope/vim-fugitive'               " Git plugin
 Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
 Plug 'tpope/vim-surround'               " Surround with everything
@@ -60,19 +58,14 @@ let g:coc_global_extensions = [
     \ ]
 
 " GitGutter
+let g:gitgutter_close_preview_on_escape = 1 " Close the popup window with escape
 let g:gitgutter_preview_win_floating = 1    " Use popup window for hunk previews
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
 let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_removed_above_and_below = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
-
-" NERDCommenter
-let g:NERDSpaceDelims = 1               " Add a space after comment delimiters
-
-" NERDTree
-let NERDTreeIgnore = ['\.DS_Store$']    " Files to hide
-let NERDTreeShowHidden = 1              " Show hidden files
 
 " Vimwiki
 let g:vimwiki_list = [{
@@ -86,6 +79,11 @@ let g:vimwiki_list = [{
     \ 'syntax': 'markdown',
     \ }]
 let g:vimwiki_markdown_link_ext = 1 " Include Markdown extensions
+
+" netrw
+let g:netrw_banner = 0
+let g:netrw_list_hide= '.DS_Store'
+let g:netrw_liststyle = 3
 
 " vim-zettel
 let g:zettel_format = '%Y%m%d%H%M'  " Filename format
@@ -200,15 +198,6 @@ augroup END
 " Use space as the leader through `\` so it still shows for `showcmd`
 nmap <Space> \
 
-" NERDTree
-nnoremap <silent> <leader>k :NERDTreeToggle<CR>
-
-" fzf
-nnoremap <silent> <Leader>a :Ag<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>g :BCommits<CR>
-
 " Confirm completion
 inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -219,6 +208,11 @@ nnoremap <silent> <Leader>n :nohlsearch<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nnoremap - :Explore<CR>
+nnoremap <silent> <Leader>a :Ag<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>c :BCommits<CR>
+nnoremap <silent> <Leader>f :Files<CR>
 
 " Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
