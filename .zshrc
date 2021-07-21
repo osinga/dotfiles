@@ -58,10 +58,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'      # Set the default source
 export FZF_DEFAULT_OPTS='--layout=reverse'          # Top to bottom
 
-# Paths
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-
 # Terminal
 export CLICOLOR=1                                   # Turn colors on
 export EDITOR=/usr/local/bin/vim                    # Set the default editor
