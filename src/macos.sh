@@ -231,7 +231,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # IP block list
 defaults write org.m0k.Transmission BlocklistNew -bool true
-defaults write org.m0k.Transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+defaults write org.m0k.Transmission BlocklistURL -string "https://github.com/Naunter/BT_BlockLists/raw/master/bt_blocklists.gz"
 defaults write org.m0k.Transmission BlocklistAutoUpdate -bool true
 
 # Don’t prompt for confirmation before removing non-downloading active transfers
