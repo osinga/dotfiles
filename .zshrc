@@ -46,6 +46,29 @@ function codi() {
     "
 }
 
+function cd() {
+    # If arg is "AC.ID.NN" go to NN folder
+    if [[ $1 =~ '^[0-9]{2}\.[0-9]{2}\.[0-9]{2}$' ]]; then
+        builtin cd ~/Documents/*/*/*/${1}*/
+
+    # If arg is "AC.ID" go to ID folder
+    elif [[ $1 =~ '^[0-9]{2}\.[0-9]{2}$' ]]; then
+        builtin cd ~/Documents/*/*/${1}*/
+
+    # If arg is "AC-AC" go to Area folder
+    elif [[ $1 =~ '^[0-9]{2}-[0-9]{2}$' ]]; then
+        builtin cd ~/Documents/${1}*/; ls -lh
+
+    # If arg is "AC" go to Category folder
+    elif [[ $1 =~ '^[0-9]{2}$' ]]; then
+        builtin cd ~/Documents/*/${1}*/; ls -lh
+
+    # Otherwise call `cd` normally
+    else
+        builtin cd "$@"
+    fi
+}
+
 
 
 ################################################################################
