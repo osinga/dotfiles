@@ -22,7 +22,7 @@ Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
 Plug 'vim-airline/vim-airline'          " Status line
-Plug 'vimwiki/vimwiki'                  " Personal wiki
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }         " Personal wiki
 
 call plug#end()
 
@@ -52,7 +52,6 @@ let g:airline_section_y = ''            " Hide the file encoding
 let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-eslint',
-    \ 'coc-html',
     \ 'coc-json',
     \ 'coc-tsserver',
     \ ]
@@ -75,7 +74,7 @@ let g:vimwiki_list = [{
     \ 'diary_rel_path': 'journal/',
     \ 'ext': '.md',
     \ 'index': 'notes/README',
-    \ 'path': '~/Documents/Wiki/',
+    \ 'path': '~/Documents/10-19 Personal/11 Wiki',
     \ 'syntax': 'markdown',
     \ }]
 let g:vimwiki_markdown_link_ext = 1 " Include Markdown extensions
@@ -186,7 +185,7 @@ autocmd BufWinEnter *.md setlocal syntax=markdown
 " Tweak formatting in Markdown files
 augroup Markdown
     autocmd!
-    autocmd FileType markdown setlocal linebreak
+    autocmd FileType markdown setlocal conceallevel=2 linebreak
 augroup END
 
 
