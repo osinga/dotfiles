@@ -40,15 +40,15 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # 13: Lock Screen
 
 # Bottom left screen corner → Put display to sleep
-defaults write com.apple.Dock wvous-bl-corner -int 10
-defaults write com.apple.Dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-bl-corner -int 10
+defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.Screensaver askForPassword -int 1
-defaults write com.apple.Screensaver askForPasswordDelay -int 0
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Show the battery percentage in the menu bar
 defaults write com.apple.menuextra.battery ShowPercent -bool true
@@ -72,28 +72,28 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 ################################################################################
 
 # Enable spring loading for all Dock items
-defaults write com.apple.Dock enable-spring-load-actions-on-all-items -bool true
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.Dock mru-spaces -bool false
+defaults write com.apple.dock mru-spaces -bool false
 
 # Wipe all (default) app icons from the Dock
-defaults write com.apple.Dock persistent-apps -array
+defaults write com.apple.dock persistent-apps -array
 
 # TODO: Add apps persistent Dock section
 
 # Add a spacer to the left side of the Dock (where the applications are)
-defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-defaults write com.apple.Dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
 
 # Don't show recent applications
-defaults write com.apple.Dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool false
 
 # Enable the App Expose gesture
-defaults write com.apple.Dock showAppExposeGestureEnabled -bool true
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.Dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 36
 
 
 
