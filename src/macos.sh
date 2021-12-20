@@ -21,25 +21,21 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# Expand print panel by default
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
 # Hot corners
 # Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-# 13: Lock Screen
-
-# Bottom left screen corner → Put display to sleep
+#     0: no-op
+#     1: -
+#     2: Mission Control
+#     3: Application Windows
+#     4: Desktop
+#     5: Start Screen Saver
+#     6: Disable Screen Saver
+#    10: Put Display to Sleep
+#    11: Launchpad
+#    12: Notification Centre
+#    13: Lock Screen
+#    14: Quick Note
+# Bottom left screen corner → Put Display to Sleep
 defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
@@ -47,14 +43,12 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPassword -bool true
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Show the battery percentage in the menu bar
-defaults write com.apple.menuextra.battery ShowPercent -bool true
-
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+# Remove Spotlight and Siri from the menu bar
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
+defaults write com.apple.Siri StatusMenuVisible -bool false
 
 
 
@@ -71,16 +65,14 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Dock                                                                         #
 ################################################################################
 
-# Enable spring loading for all Dock items
-defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
 # Wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
-
-# TODO: Add apps persistent Dock section
 
 # Add a spacer to the left side of the Dock (where the applications are)
 defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
@@ -102,54 +94,97 @@ defaults write com.apple.dock tilesize -int 36
 ################################################################################
 
 # Enable snap-to-grid for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
-#/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.Finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.DesktopServices DSDontWriteNetworkStores -bool true
 defaults write com.apple.DesktopServices DSDontWriteUSBStores -bool true
 
 # Keep folders on top when sorting by name
-defaults write com.apple.Finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Expand the following File Info panes:
-defaults write com.apple.Finder FXInfoPanesExpanded -dict \
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
     General -bool true \
     OpenWith -bool true \
     Preview -bool true \
     Privileges -bool true
 
 # Use column view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-defaults write com.apple.Finder FXPreferredViewStyle -string "clmv"
+# Four-letter codes for the other view modes: `Flwv`, `Nlsv`, `icnv`
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
-# Group files by application
-defaults write com.apple.Finder FXPreferredGroupBy -string "Kind"
+# Group files by kind
+defaults write com.apple.finder FXPreferredGroupBy -string "Kind"
 
 # Remove items from the Trash after 30 days
-defaults write com.apple.Finder FXRemoveOldTrashItems -bool true
+defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
 # Set Documents as the default location for new Finder windows
-defaults write com.apple.Finder NewWindowTargetPath -string "file://${HOME}/Documents/"
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Documents/"
 
-# Hide icons for hard drives, removable media, and servers on the desktop
-defaults write com.apple.Finder ShowExternalHardDrivesOnDesktop -bool false
-defaults write com.apple.Finder ShowHardDrivesOnDesktop -bool false
-defaults write com.apple.Finder ShowMountedServersOnDesktop -bool false
-defaults write com.apple.Finder ShowRemovableMediaOnDesktop -bool false
+# Hide icons for hard drives and servers on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
 # Do not show tags in the sidebar
-defaults write com.apple.Finder ShowRecentTags -bool false
+defaults write com.apple.finder ShowRecentTags -bool false
+
+
+
+################################################################################
+# Reminders                                                                    #
+################################################################################
+
+# Mute notifications for assigned reminders
+defaults write com.apple.remindd enableAssignmentNotifications -bool false
 
 
 
 #################################################################################
-# Siri                                                                          #
+# Safari                                                                        #
 #################################################################################
 
-# Hide the status menu icon
-defaults write com.apple.Siri StatusMenuVisible -bool false
+# Enable the Develop menu and the Web Inspector in Safari
+#defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
+
+# Disable AutoFill
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
+
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+# Restore all windows from the last session
+defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
+
+# Make Safari’s search banners default to Contains instead of Starts With
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# Remove history items manually
+defaults write com.apple.Safari HistoryAgeInDaysLimit -int 365000
+
+# Set the default search engine to DuckDuckGo
+defaults write com.apple.Safari SearchProviderShortName -string "DuckDuckGo"
+
+# Show the full URL in the address bar
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+# Show the status bar
+defaults write com.apple.Safari ShowOverlayStatusBar -bool true
 
 
 
@@ -220,9 +255,6 @@ defaults write com.apple.TextEdit RichText -bool false
 # Install TMP
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Install plugins
-~/.tmux/plugins/tpm/bin/install_plugins
-
 
 
 ################################################################################
@@ -249,9 +281,6 @@ defaults write org.m0k.Transmission DownloadLocationConstant -bool true
 # Don’t prompt for confirmation before downloading
 defaults write org.m0k.Transmission DownloadAsk -bool false
 defaults write org.m0k.Transmission MagnetOpenAsk -bool false
-
-# Enable remote access
-defaults write org.m0k.Transmission RPC -bool true
 
 # Randomize port on launch
 defaults write org.m0k.Transmission RandomPort -bool true

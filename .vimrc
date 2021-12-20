@@ -12,7 +12,6 @@ Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy finder
 Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
 Plug 'junegunn/goyo.vim'                " Distraction-free writing
 Plug 'junegunn/vim-easy-align'          " Align text
-Plug 'metakirby5/codi.vim'              " Interactive scratchpad
 Plug 'michal-h21/vim-zettel'            " Zettelkasten for Vimwiki
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
@@ -212,6 +211,7 @@ nnoremap <silent> <Leader>a :Ag<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>c :BCommits<CR>
 nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>g :GFiles<CR>
 
 " Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)

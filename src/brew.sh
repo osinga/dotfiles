@@ -12,20 +12,19 @@
 ################################################################################
 
 # Install
-brew install fzf                            # Fuzzy file finder
-brew install git                            # Version control
-brew install gh                             # GitHub CLI
-brew install httpie                         # Modern HTTP client
-brew install jq                             # JSON processor
-brew install mysql                          # MySQL
-brew install node                           # Node.js
-brew install postgresql                     # PostgresQL
-brew install the_silver_searcher            # Search through source code
-brew install tldr                           # Simplified man pages
-brew install tmux                           # Terminal multiplexer
-brew install vim                            # Use up-to-date vim
-brew install zsh-completions                # Additional Zsh completions
-brew install zsh-syntax-highlighting        # Syntax highlighting for Zsh
+brew install fzf
+brew install gh
+brew install git
+brew install httpie
+brew install jq
+brew install node
+brew install postgresql
+brew install the_silver_searcher
+brew install tldr
+brew install tmux
+brew install vim
+brew install zsh-completions
+brew install zsh-syntax-highlighting
 
 
 
@@ -34,27 +33,34 @@ brew install zsh-syntax-highlighting        # Syntax highlighting for Zsh
 ################################################################################
 
 # Install
-brew install --cask 1password               # 1Password
-brew install --cask adguard                 # AdGuard
-brew install --cask alfred                  # Alfred
-brew install --cask calibre                 # Calibre
-brew install --cask firefox                 # Firefox
-brew install --cask google-chrome           # Google Chrome
-brew install --cask imageoptim              # ImageOptim
-brew install --cask insomnia                # Insomnia
-brew install --cask karabiner-elements      # Karabiner Elements
-brew install --cask keyboard-maestro        # Keyboard Maestro
-brew install --cask notion                  # Notion
-brew install --cask pock                    # Pock
-brew install --cask slack                   # Slack
-brew install --cask soda-player             # Soda Player
-brew install --cask spotify                 # Spotify
-brew install --cask tableplus               # TablePlus
-brew install --cask tor-browser             # Tor Browser
-brew install --cask transmission            # Transmission
-brew install --cask visual-studio-code      # Visual Studio Code
-brew install --cask whatsapp                # WhatsApp
-brew install --cask zotero                  # Zotero
+brew install --cask 1password
+brew install --cask abstract
+brew install --cask adguard
+brew install --cask alfred
+brew install --cask appcleaner
+brew install --cask calibre
+brew install --cask firefox
+brew install --cask google-chrome
+brew install --cask imageoptim
+brew install --cask insomnia
+brew install --cask karabiner-elements
+brew install --cask keyboard-maestro
+brew install --cask notion
+brew install --cask plex
+brew install --cask pock
+brew install --cask raycast
+brew install --cask sf-symbols
+brew install --cask sketch
+brew install --cask slack
+brew install --cask soda-player
+brew install --cask spotify
+brew install --cask tableplus
+brew install --cask tor-browser
+brew install --cask transmission
+brew install --cask visual-studio-code
+brew install --cask whatsapp
+brew install --cask zoom
+brew install --cask zotero
 
 
 
@@ -63,10 +69,15 @@ brew install --cask zotero                  # Zotero
 ################################################################################
 
 # Setup
-brew tap homebrew/cask-fonts                # Tap Homebrew Fonts
+brew tap homebrew/cask-fonts
 
 # Install
-brew install font-iosevka                   # Iosevka
+brew install --cask font-iosevka
+brew install --cask font-new-york
+brew install --cask font-open-sans
+brew install --cask font-sf-compact
+brew install --cask font-sf-mono
+brew install --cask font-sf-pro
 
 
 
@@ -75,5 +86,4 @@ brew install font-iosevka                   # Iosevka
 ################################################################################
 
 # Start
-brew services start mysql                   # MySQL
-brew services start postgresql              # PostgresQL
+brew services start postgresql

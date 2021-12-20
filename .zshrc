@@ -34,18 +34,7 @@ alias update='~/src/update.sh'
 # Vim-style exit
 alias :q='exit'
 
-# Open Vim with Codi
-# Usage: codi [filetype]
-function codi() {
-    vim -c "
-        highlight NonText ctermfg=0
-        let g:codi#rightsplit=0
-        set bt=nofile showtabline=0
-        startinsert
-        Codi ${1:-javascript}
-    "
-}
-
+# JD navigation
 function cd() {
     # If arg is "AC.ID.NN" go to NN folder
     if [[ $1 =~ '^[0-9]{2}\.[0-9]{2}\.[0-9]{2}$' ]]; then
