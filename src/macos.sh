@@ -77,6 +77,7 @@ defaults write com.apple.dock persistent-apps -array
 # Add a spacer to the left side of the Dock (where the applications are)
 defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
 defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
 
 # Don't show recent applications
 defaults write com.apple.dock show-recents -bool false
