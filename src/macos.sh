@@ -139,6 +139,9 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # Do not show tags in the sidebar
 defaults write com.apple.finder ShowRecentTags -bool false
 
+# Create the `Development` folder
+mkdir -p ~/Development
+
 
 
 ################################################################################
