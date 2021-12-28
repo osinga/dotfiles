@@ -39,8 +39,6 @@ brew install zsh-syntax-highlighting
 # Install
 brew install --cask 1password
 brew install --cask abstract
-brew install --cask adguard
-brew install --cask alfred
 brew install --cask appcleaner
 brew install --cask calibre
 brew install --cask firefox
@@ -51,7 +49,6 @@ brew install --cask karabiner-elements
 brew install --cask keyboard-maestro
 brew install --cask notion
 brew install --cask plex
-brew install --cask pock
 brew install --cask raycast
 brew install --cask sf-symbols
 brew install --cask sketch
@@ -72,13 +69,12 @@ brew install --cask zotero
 # Fonts                                                                        #
 ################################################################################
 
-# Setup
+# Set up
 brew tap homebrew/cask-fonts
 
 # Install
 brew install --cask font-iosevka
 brew install --cask font-new-york
-brew install --cask font-open-sans
 brew install --cask font-sf-compact
 brew install --cask font-sf-mono
 brew install --cask font-sf-pro
