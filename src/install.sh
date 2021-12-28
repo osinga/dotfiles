@@ -14,6 +14,9 @@ dotfiles checkout --force
 # Set the `showUntrackedFiles` flag for this clone
 dotfiles config --local status.showUntrackedFiles no
 
+# Hide the `src` folder
+chflags hidden ~/src
+
 
 
 ################################################################################
