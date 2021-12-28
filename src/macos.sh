@@ -268,6 +268,9 @@ defaults write com.apple.TextEdit RichText -bool false
 # Install TMP
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Install plugins
+~/.tmux/plugins/tpm/bin/install_plugins
+
 
 
 ################################################################################
