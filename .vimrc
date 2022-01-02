@@ -41,6 +41,13 @@ let &fillchars ..= ',eob: '             " Hide end-of-buffer lines (~)
 let g:onedark_termcolors = 16           " Use terminal's native 16 colors
 let g:onedark_terminal_italics = 1      " Enable italics
 
+augroup OneDark
+    autocmd!
+    autocmd ColorScheme * call onedark#extend_highlight('CursorLine', { 'bg': { 'cterm16': 8 } })
+    autocmd ColorScheme * call onedark#extend_highlight('Normal', { 'fg': { 'cterm16': 15 } })
+    autocmd ColorScheme * call onedark#extend_highlight('Visual', { 'bg': { 'cterm16': 7 } })
+augroup END
+
 colorscheme onedark                     " Set the color scheme to One Dark
 
 " Airline
@@ -174,7 +181,7 @@ autocmd FocusLost * :silent! wall
 " Show cursor line in active window only
 augroup CursorLine
     autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd BufWinEnter,VimEnter,WinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
@@ -184,6 +191,7 @@ autocmd BufWinEnter *.md setlocal syntax=markdown
 " Tweak formatting in Markdown files
 augroup Markdown
     autocmd!
+    autocmd BufWinEnter,VimEnter,WinEnter *.md setlocal nocursorline
     autocmd FileType markdown setlocal conceallevel=2 linebreak
 augroup END
 
