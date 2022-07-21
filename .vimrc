@@ -33,8 +33,8 @@ call plug#end()
 
 " Styling
 let &t_EI = "\<Esc>[2 q"                " Normal mode cursor
-let &t_SI = "\<Esc>[5 q"                " Insert mode cursor
-let &t_SR = "\<Esc>[3 q"                " Replace mode cursor
+let &t_SI = "\<Esc>[6 q"                " Insert mode cursor
+let &t_SR = "\<Esc>[4 q"                " Replace mode cursor
 
 let &fillchars ..= ',eob: '             " Hide end-of-buffer lines (~)
 
