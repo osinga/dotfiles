@@ -1,3 +1,7 @@
+source $VIMRUNTIME/defaults.vim         " Load sensible defaults
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins                                                                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,32 +99,26 @@ let g:zettel_format = '%Y%m%d%H%M'  " Filename format
 
 " Accessibility
 set clipboard=unnamed               " Use the macOS clipboard
-set mouse=a                         " Allow the use of the mouse
 
 " Backup
 set backupdir=~/.vim/backup//       " Where to store backup files
 set directory=~/.vim/swap//         " Where to store swap files
 set undodir=~/.vim/undo//           " Where to store undo files
-set undofile
+set undofile                        " Restore from the undo file on buffer read
 
 " Buffers
 set hidden                          " Hide buffers instead of unloading
 
 " Command line
-set wildmenu                        " Enable command line completion
 set wildmode=longest,full           " 1 longest common string, 2 next full match
 
 " Folding
 set foldmethod=indent               " Fold based on indentation
 set nofoldenable                    " Open folds by default
 
-" Insert
-set showmatch                       " Briefly show matching bracket on insert
-
 " Lines
 set number                          " Show line numbers
 set relativenumber                  " Use relative numbers
-set scrolloff=3                     " Always keep 3 lines above/below the curser
 set signcolumn=yes                  " Always show the sign column
 
 " Performance
@@ -131,7 +129,6 @@ set synmaxcol=800                   " Don't highlight lines after column 800
 " Search
 set hlsearch                        " Highlight all matches for previous search
 set ignorecase                      " Ignore case in search patterns
-set incsearch                       " Show live search results while typing
 set smartcase                       " Don't ignore case if pattern has uppercase
 
 " Spelling
@@ -143,7 +140,6 @@ set splitright                      " Open vertical splits on the right
 
 " Status line
 set noshowmode                      " Hide the default mode indicator
-set showcmd                         " Show (partial) commands in statusline
 
 " Tabs
 set expandtab                       " Use spaces when tab is inserted
@@ -157,33 +153,8 @@ set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
 " Autocommands                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Additional Goyo configuration
-function! s:goyo_enter()
-    set eventignore=FocusGained
-    set linebreak
-    set noshowcmd
-    set spell
-endfunction
-
-function! s:goyo_leave()
-    set eventignore=
-    set nolinebreak
-    set showcmd
-    set nospell
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 " Save when losing focus
 autocmd FocusLost * :silent! wall
-
-" Show cursor line in active window only
-augroup CursorLine
-    autocmd!
-    autocmd BufWinEnter,VimEnter,WinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
 
 " Use Markdown syntax for Vimwiki files
 autocmd BufWinEnter *.md setlocal syntax=markdown
@@ -191,8 +162,7 @@ autocmd BufWinEnter *.md setlocal syntax=markdown
 " Tweak formatting in Markdown files
 augroup Markdown
     autocmd!
-    autocmd BufWinEnter,VimEnter,WinEnter *.md setlocal nocursorline
-    autocmd FileType markdown setlocal conceallevel=2 linebreak
+    autocmd FileType markdown setlocal concealcursor=nc conceallevel=2 linebreak spell
 augroup END
 
 
@@ -241,25 +211,25 @@ nnoremap [w :vertical resize -5<CR>
 nnoremap ]w :vertical resize +5<CR>
 
 " Search spelling suggestions
+nnoremap z= :call <SID>SuggestSpelling()<CR>
+
 function! s:SuggestSpelling()
     function! Sink(word)
-        exe 'normal! "_ciw' . a:word
+        execute 'normal! "_ciw' . a:word
     endfunction
 
     let suggestions = spellsuggest(expand('<cword>'), 100)
     return fzf#run(fzf#wrap({ 'source': suggestions, 'sink': function('Sink') }))
 endfunction
 
-nnoremap z= :call <SID>SuggestSpelling()<CR>
-
 " Show documentation
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>ShowDocumentation()<CR>
 
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
+function! s:ShowDocumentation()
+    if (index(['help', 'vim'], &filetype) >= 0)
+        execute 'help ' . expand('<cword>')
     else
-        call CocAction('doHover')
+        call CocActionAsync('doHover')
     endif
 endfunction
 
@@ -269,12 +239,13 @@ xmap ga <Plug>(EasyAlign)
 
 " Trigger completion and navigate
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
+inoremap <silent><expr> <TAB> pumvisible()
+    \ ? "\<C-n>"
+    \ : <SID>CheckBackspace()
+        \ ? "\<TAB>"
+        \ : coc#refresh()
 
-function! s:check_back_space() abort
+function! s:CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
