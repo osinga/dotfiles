@@ -17,27 +17,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General                                                                      #
 ################################################################################
 
+# Always prefer tabs when opening documents
+defaults write NSGlobalDomain AppleWindowTabbingMode -string "always"
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
-# Hot corners
-# Possible values:
-#     0: no-op
-#     1: -
-#     2: Mission Control
-#     3: Application Windows
-#     4: Desktop
-#     5: Start Screen Saver
-#     6: Disable Screen Saver
-#    10: Put Display to Sleep
-#    11: Launchpad
-#    12: Notification Centre
-#    13: Lock Screen
-#    14: Quick Note
-# Bottom left screen corner → Put Display to Sleep
-defaults write com.apple.dock wvous-bl-corner -int 10
-defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -88,6 +73,24 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
 
+# Hot corners
+# Possible values:
+#     0: no-op
+#     1: -
+#     2: Mission Control
+#     3: Application Windows
+#     4: Desktop
+#     5: Start Screen Saver
+#     6: Disable Screen Saver
+#    10: Put Display to Sleep
+#    11: Launchpad
+#    12: Notification Centre
+#    13: Lock Screen
+#    14: Quick Note
+# Bottom left screen corner → Put Display to Sleep
+defaults write com.apple.dock wvous-bl-corner -int 10
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
 
 
 ################################################################################
@@ -100,6 +103,9 @@ defaults write com.apple.dock tilesize -int 36
 
 # Show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Move archives to Trash after expanding
+defaults write com.apple.archiveutility dearchive-move-after -string "~/.Trash"
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.DesktopServices DSDontWriteNetworkStores -bool true
@@ -172,6 +178,9 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
 
+# Allow managing Safari programatically
+defaults write com.apple.Safari AllowJavaScriptFromAppleEvents -bool true
+
 # Disable AutoFill
 defaults write com.apple.Safari AutoFillCreditCardData -bool false
 defaults write com.apple.Safari AutoFillFromAddressBook -bool false
@@ -204,9 +213,6 @@ defaults write com.apple.Safari ShowOverlayStatusBar -bool true
 #################################################################################
 # Terminal                                                                      #
 #################################################################################
-
-# Enable Secure Keyboard Entry in Terminal.app
-defaults write com.apple.Terminal SecureKeyboardEntry -bool true
 
 # Hide the line marks
 defaults write com.apple.Terminal ShowLineMarks -bool false
