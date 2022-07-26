@@ -1,9 +1,5 @@
-export ZSH=/Users/Osinga/.oh-my-zsh
-
-
-
 ################################################################################
-# Zsh                                                                          #
+# Oh My Zsh                                                                    #
 ################################################################################
 
 # Plugins
@@ -13,8 +9,8 @@ plugins=(
 )
 
 # Settings
-DISABLE_AUTO_TITLE='true'           # Disable auto-setting the terminal title
-ZSH_THEME='osinga'                  # Set the terminal theme
+export ZSH=~/.oh-my-zsh                                  # Set the folder path
+export ZSH_THEME=osinga                                  # Set the terminal theme
 
 
 
@@ -71,12 +67,8 @@ export FZF_DEFAULT_COMMAND='ag --hidden -g ""'      # Set the default source
 export FZF_DEFAULT_OPTS='--layout=reverse'          # Top to bottom
 
 # Terminal
-export CLICOLOR=1                                   # Turn colors on
-export EDITOR=/opt/homebrew/bin/vim                 # Set the default editor
 export KEYTIMEOUT=1                                 # Kill the lag
-export LSCOLORS=GxFxCxDxBxegedabagaced              # Customize the colors
 export TERM=xterm-256color-italic                   # Enable italics
-export VISUAL="$EDITOR"                             # Set the default editor
 
 
 

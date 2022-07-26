@@ -151,15 +151,6 @@ mkdir -p ~/Development
 
 
 ################################################################################
-# oh-my-zsh                                                                    #
-################################################################################
-
-# Install
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
-
-################################################################################
 # Reminders                                                                    #
 ################################################################################
 
@@ -213,6 +204,9 @@ defaults write com.apple.Safari ShowOverlayStatusBar -bool true
 #################################################################################
 # Terminal                                                                      #
 #################################################################################
+
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Hide the line marks
 defaults write com.apple.Terminal ShowLineMarks -bool false

@@ -8,12 +8,12 @@ source $VIMRUNTIME/defaults.vim         " Load sensible defaults
 
 call plug#begin('~/.vim/plugged')
 
+Plug '/opt/homebrew/opt/fzf'            " Fuzzy finder
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
 Plug 'joshdick/onedark.vim'             " One Dark theme
-Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy finder
-Plug 'junegunn/fzf.vim'                 " Fuzzy file finder
+Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'junegunn/goyo.vim'                " Distraction-free writing
 Plug 'junegunn/vim-easy-align'          " Align text
 Plug 'michal-h21/vim-zettel'            " Zettelkasten for Vimwiki
@@ -214,12 +214,10 @@ nnoremap ]w :vertical resize +5<CR>
 nnoremap z= :call <SID>SuggestSpelling()<CR>
 
 function! s:SuggestSpelling()
-    function! Sink(word)
-        execute 'normal! "_ciw' . a:word
-    endfunction
-
-    let suggestions = spellsuggest(expand('<cword>'), 100)
-    return fzf#run(fzf#wrap({ 'source': suggestions, 'sink': function('Sink') }))
+    return fzf#run(fzf#wrap({
+        \ 'source': spellsuggest(expand('<cword>'), 50),
+        \ 'sink': 'normal "_ciw',
+        \ }))
 endfunction
 
 " Show documentation
