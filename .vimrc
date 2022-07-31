@@ -16,7 +16,7 @@ Plug 'joshdick/onedark.vim'             " One Dark theme
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'junegunn/goyo.vim'                " Distraction-free writing
 Plug 'junegunn/vim-easy-align'          " Align text
-Plug 'michal-h21/vim-zettel'            " Zettelkasten for Vimwiki
+Plug 'lervag/wiki.vim'                  " Personal wiki
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
 Plug 'tpope/vim-commentary'             " Comment stuff out
@@ -25,7 +25,6 @@ Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
 Plug 'vim-airline/vim-airline'          " Status line
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }         " Personal wiki
 
 call plug#end()
 
@@ -60,11 +59,11 @@ let g:airline_section_y = ''            " Hide the file encoding
 
 " Coc
 let g:coc_global_extensions = [
-    \ 'coc-css',
-    \ 'coc-eslint',
-    \ 'coc-json',
-    \ 'coc-tsserver',
-    \ ]
+\   'coc-css',
+\   'coc-eslint',
+\   'coc-json',
+\   'coc-tsserver',
+\ ]
 
 " GitGutter
 let g:gitgutter_close_preview_on_escape = 1 " Close the popup window with escape
@@ -76,26 +75,29 @@ let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_above_and_below = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
-" Vimwiki
-let g:vimwiki_list = [{
-    \ 'auto_diary_index': 1,
-    \ 'diary_header': 'Journal',
-    \ 'diary_index': 'README',
-    \ 'diary_rel_path': 'journal/',
-    \ 'ext': '.md',
-    \ 'index': 'notes/README',
-    \ 'path': '~/Documents/10-19 Personal/11 Wiki',
-    \ 'syntax': 'markdown',
-    \ }]
-let g:vimwiki_markdown_link_ext = 1 " Include Markdown extensions
+" Wiki
+let g:wiki_filetypes = ['md']
+let g:wiki_index_name = 'README'
+let g:wiki_link_extension = '.md'
+let g:wiki_link_target_type = 'md'
+let g:wiki_map_create_page = 'WikiCreatePage'
+let g:wiki_map_text_to_link = 'WikiTextToLink'
+let g:wiki_root = '~/Documents/10-19 Personal/11 Wiki'
+
+let s:note_date_format = '%Y%m%d%H%M'
+
+function WikiCreatePage(name)
+    return strftime(s:note_date_format)
+endfunction
+
+function WikiTextToLink(text)
+    return [strftime(s:note_date_format), a:text]
+endfunction
 
 " netrw
 let g:netrw_banner = 0
 let g:netrw_list_hide= '.DS_Store'
 let g:netrw_liststyle = 3
-
-" vim-zettel
-let g:zettel_format = '%Y%m%d%H%M'  " Filename format
 
 " Accessibility
 set clipboard=unnamed               " Use the macOS clipboard
@@ -153,16 +155,16 @@ set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
 " Autocommands                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Save when losing focus
-autocmd FocusLost * :silent! wall
-
-" Use Markdown syntax for Vimwiki files
-autocmd BufWinEnter *.md setlocal syntax=markdown
-
-" Tweak formatting in Markdown files
-augroup Markdown
+augroup vimrc
     autocmd!
-    autocmd FileType markdown setlocal concealcursor=nc conceallevel=2 linebreak spell
+
+    " Save all buffers when losing focus
+    autocmd FocusLost * :silent! wall
+
+    " Tweak configuration in Markdown files
+    autocmd FileType markdown
+    \   let b:coc_suggest_disable = 1 |
+    \   setlocal concealcursor=nc conceallevel=2 linebreak spell noruler noshowcmd
 augroup END
 
 
@@ -209,16 +211,6 @@ nnoremap [h :resize -5<CR>
 nnoremap ]h :resize +5<CR>
 nnoremap [w :vertical resize -5<CR>
 nnoremap ]w :vertical resize +5<CR>
-
-" Search spelling suggestions
-nnoremap z= :call <SID>SuggestSpelling()<CR>
-
-function! s:SuggestSpelling()
-    return fzf#run(fzf#wrap({
-        \ 'source': spellsuggest(expand('<cword>'), 50),
-        \ 'sink': 'normal "_ciw',
-        \ }))
-endfunction
 
 " Show documentation
 nnoremap <silent> K :call <SID>ShowDocumentation()<CR>
