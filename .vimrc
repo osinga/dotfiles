@@ -158,6 +158,10 @@ set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
 augroup vimrc
     autocmd!
 
+    " Reload configuration files on update
+    autocmd BufWritePost .tmux.conf silent !tmux source-file %
+    autocmd BufWritePost .vimrc source %
+
     " Save all buffers when losing focus
     autocmd FocusLost * :silent! wall
 
@@ -165,7 +169,7 @@ augroup vimrc
     autocmd FileType markdown
     \   let b:coc_suggest_disable = 1 |
     \   setlocal concealcursor=nc conceallevel=2 linebreak spell noruler noshowcmd
-augroup END
+augroup end
 
 
 
