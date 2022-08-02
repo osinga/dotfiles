@@ -99,6 +99,9 @@ let g:netrw_banner = 0
 let g:netrw_list_hide= '.DS_Store'
 let g:netrw_liststyle = 3
 
+" tmux-navigator
+let g:tmux_navigator_disable_when_zoomed = 1
+
 " Accessibility
 set clipboard=unnamed               " Use the macOS clipboard
 
