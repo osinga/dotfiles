@@ -161,6 +161,9 @@ set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
 augroup vimrc
     autocmd!
 
+    " Equalize splits after window resize
+    autocmd VimResized * wincmd =
+
     " Reload configuration files on update
     autocmd BufWritePost .tmux.conf silent !tmux source-file %
     autocmd BufWritePost .vimrc source %
