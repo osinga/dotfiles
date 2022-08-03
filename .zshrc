@@ -62,9 +62,8 @@ function cd() {
 
 # fzf
 export FZF_COMPLETION_OPTS='--preview "cat {}"'     # Add a preview window
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'      # Set the default source
-export FZF_DEFAULT_OPTS='--layout=reverse'          # Top to bottom
+export FZF_DEFAULT_OPTS='--border --color=16,border:7 --layout=reverse --margin=0,1'
 
 # Terminal
 export KEYTIMEOUT=1                                 # Kill the lag
@@ -77,5 +76,5 @@ export TERM=xterm-256color-italic                   # Enable italics
 ################################################################################
 
 source $ZSH/oh-my-zsh.sh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.fzf.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

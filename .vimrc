@@ -194,11 +194,13 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap - :Explore<CR>
-nnoremap <silent> <Leader>a :Ag<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>c :BCommits<CR>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>g :GFiles<CR>
+nnoremap <silent> <Leader>C :Commits<CR>
+nnoremap <silent> <Leader>f :GFiles<CR>
+nnoremap <silent> <Leader>F :Files<CR>
+nnoremap <silent> <Leader>l :BLines<CR>
+nnoremap <silent> <Leader>L :Ag<CR>
 
 " Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)

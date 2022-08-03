@@ -30,6 +30,9 @@ brew install vim
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 
+# Configure
+$(brew --prefix)/opt/fzf/install --all --no-bash --no-update-rc
+
 
 
 ################################################################################
