@@ -75,6 +75,11 @@ let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_above_and_below = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
+" Netrw
+let g:netrw_banner = 0
+let g:netrw_list_hide= '.DS_Store'
+let g:netrw_liststyle = 3                   " Use tree style listing
+
 " Wiki
 let g:wiki_filetypes = ['md']
 let g:wiki_index_name = 'README'
@@ -94,13 +99,11 @@ function WikiTextToLink(text)
     return [strftime(s:note_date_format), a:text]
 endfunction
 
-" netrw
-let g:netrw_banner = 0
-let g:netrw_list_hide= '.DS_Store'
-let g:netrw_liststyle = 3
-
 " tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
+
+" vim-markdown
+let g:markdown_folding = 1
 
 " Accessibility
 set clipboard=unnamed               " Use the macOS clipboard
@@ -118,8 +121,8 @@ set hidden                          " Hide buffers instead of unloading
 set wildmode=longest,full           " 1 longest common string, 2 next full match
 
 " Folding
+set foldlevelstart=99               " Start with no folds closed
 set foldmethod=indent               " Fold based on indentation
-set nofoldenable                    " Open folds by default
 
 " Lines
 set number                          " Show line numbers
