@@ -149,12 +149,6 @@ set splitright                      " Open vertical splits on the right
 " Status line
 set noshowmode                      " Hide the default mode indicator
 
-" Tabs
-set expandtab                       " Use spaces when tab is inserted
-set shiftround                      " Round indent to multiple of `shiftwidth`
-set shiftwidth=4                    " Use 4 spaces for auto (auto)indent
-set softtabstop=4                   " Use 4 spaces for <BS> in insert mode
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
