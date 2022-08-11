@@ -27,7 +27,6 @@ brew install the_silver_searcher
 brew install tldr
 brew install tmux
 brew install vim
-brew install zsh-completions
 brew install zsh-syntax-highlighting
 
 # Configure

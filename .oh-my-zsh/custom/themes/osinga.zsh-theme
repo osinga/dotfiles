@@ -1,4 +1,4 @@
-MODE_INDICATOR="%B%F{black}%K{green} NORMAL %b%f%k"
+MODE_INDICATOR="%BNORMAL%b"
 
 PROMPT='%F{yellow}%2~ %F{15}$%b '
 RPROMPT='$(vi_mode_prompt_info) $(git_prompt_info)'

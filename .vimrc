@@ -24,7 +24,6 @@ Plug 'tpope/vim-fugitive'               " Git plugin
 Plug 'tpope/vim-repeat'                 " Repeat plugin mappings
 Plug 'tpope/vim-surround'               " Surround with everything
 Plug 'tpope/vim-unimpaired'             " Complementary mappings
-Plug 'vim-airline/vim-airline'          " Status line
 
 call plug#end()
 
@@ -44,18 +43,7 @@ let &fillchars ..= ',eob: '             " Hide end-of-buffer lines (~)
 let g:onedark_termcolors = 16           " Use terminal's native 16 colors
 let g:onedark_terminal_italics = 1      " Enable italics
 
-augroup OneDark
-    autocmd!
-    autocmd ColorScheme * call onedark#extend_highlight('CursorLine', { 'bg': { 'cterm16': 8 } })
-    autocmd ColorScheme * call onedark#extend_highlight('Normal', { 'fg': { 'cterm16': 15 } })
-    autocmd ColorScheme * call onedark#extend_highlight('Visual', { 'bg': { 'cterm16': 7 } })
-augroup END
-
 colorscheme onedark                     " Set the color scheme to One Dark
-
-" Airline
-let g:airline_section_b = ''            " Hide the git information
-let g:airline_section_y = ''            " Hide the file encoding
 
 " Coc
 let g:coc_global_extensions = [
@@ -146,9 +134,6 @@ set spelllang=en_us,nl              " Define the spell checking languages
 set splitbelow                      " Open horizontal splits on the bottom
 set splitright                      " Open vertical splits on the right
 
-" Status line
-set noshowmode                      " Hide the default mode indicator
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,6 +145,9 @@ augroup vimrc
 
     " Equalize splits after window resize
     autocmd VimResized * wincmd =
+
+    " Increase the legibility of regular text
+    autocmd ColorScheme * call onedark#extend_highlight('Normal', { 'fg': { 'cterm16': 15 } })
 
     " Reload configuration files on update
     autocmd BufWritePost .tmux.conf silent !tmux source-file %
