@@ -10,5 +10,5 @@ My macOS dotfiles, set up as a [bare repository](https://www.atlassian.com/git/t
 2. Download and execute the install script:
 
     ```sh
-    curl https://raw.githubusercontent.com/osinga/dotfiles/master/src/install.sh | sh
+    curl https://raw.githubusercontent.com/osinga/dotfiles/main/src/install.sh | sh
     ```
