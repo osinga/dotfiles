@@ -1,9 +1,9 @@
 [user]
 	name = osinga
-	email = osinga@users.noreply.github.com
+	email = 6756723+osinga@users.noreply.github.com
 [core]
-	excludesfile = ~/.gitignore
+	excludesFile = ~/.gitignore
 [fetch]
 	prune = true
 [push]
-	default = simple
+	autoSetupRemote = true
