@@ -76,5 +76,6 @@ export TERM=xterm-256color-italic                   # Enable italics
 ################################################################################
 
 source $ZSH/oh-my-zsh.sh
+source ~/.config/op/plugins.sh
 source ~/.fzf.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
