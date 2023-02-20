@@ -19,7 +19,7 @@ export ZSH_THEME=osinga                                  # Set the terminal them
 ################################################################################
 
 # Go to the Development directory
-alias dev='cd ~/Development'
+alias dev='cd ~/Developer'
 
 # Direct access to the Dotfiles repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
