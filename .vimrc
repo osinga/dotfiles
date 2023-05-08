@@ -70,23 +70,18 @@ let g:netrw_list_hide= '.DS_Store'
 let g:netrw_liststyle = 3                   " Use tree style listing
 
 " Wiki
-let g:wiki_filetypes = ['md']
 let g:wiki_index_name = 'README'
-let g:wiki_link_extension = '.md'
-let g:wiki_link_target_type = 'md'
-let g:wiki_map_create_page = 'WikiCreatePage'
-let g:wiki_map_text_to_link = 'WikiTextToLink'
-let g:wiki_root = '~/Documents/10-19 Personal/11 Wiki'
+let g:wiki_root = '~/Documents/10-19 Personal/12 Notes'
 
-let s:note_date_format = '%Y%m%d%H%M'
+let g:wiki_journal = {
+\   'root': '~/Documents/10-19 Personal/11 Journal',
+\ }
 
-function WikiCreatePage(name)
-    return strftime(s:note_date_format)
-endfunction
-
-function WikiTextToLink(text)
-    return [strftime(s:note_date_format), a:text]
-endfunction
+let g:wiki_link_creation = {
+\   'md': {
+\       'url_transform': { _ -> strftime('%Y%m%d%H%M') },
+\   },
+\ }
 
 " splitjoin
 let g:splitjoin_html_attributes_bracket_on_new_line = 1
