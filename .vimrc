@@ -9,6 +9,7 @@ source $VIMRUNTIME/defaults.vim         " Load sensible defaults
 call plug#begin('~/.vim/plugged')
 
 Plug '/opt/homebrew/opt/fzf'            " Fuzzy finder
+Plug 'AndrewRadev/splitjoin.vim'        " Switch single/multi line
 Plug 'airblade/vim-gitgutter'           " Show git status in gutter
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Vim/tmux
 Plug 'jiangmiao/auto-pairs'             " Auto close brackets etc.
@@ -86,6 +87,10 @@ endfunction
 function WikiTextToLink(text)
     return [strftime(s:note_date_format), a:text]
 endfunction
+
+" splitjoin
+let g:splitjoin_html_attributes_bracket_on_new_line = 1
+let g:splitjoin_trailing_comma = 1
 
 " tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
