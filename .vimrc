@@ -122,11 +122,6 @@ set number                          " Show line numbers
 set relativenumber                  " Use relative numbers
 set signcolumn=yes                  " Always show the sign column
 
-" Performance
-set lazyredraw                      " No redrawing during macros/registers
-set notimeout                       " Do not time out mappings
-set synmaxcol=800                   " Don't highlight lines after column 800
-
 " Search
 set hlsearch                        " Highlight all matches for previous search
 set ignorecase                      " Ignore case in search patterns
@@ -175,9 +170,6 @@ augroup end
 
 " Use space as the leader through `\` so it still shows for `showcmd`
 nmap <Space> \
-
-" Confirm completion
-inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Hide search results
 nnoremap <silent> <Leader>n :nohlsearch<CR>
@@ -228,16 +220,3 @@ endfunction
 " Start EasyAlign in normal mode and visual mode
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
-
-" Trigger completion and navigate
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <TAB> pumvisible()
-    \ ? "\<C-n>"
-    \ : <SID>CheckBackspace()
-        \ ? "\<TAB>"
-        \ : coc#refresh()
-
-function! s:CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
