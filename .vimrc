@@ -17,6 +17,7 @@ Plug 'joshdick/onedark.vim'             " One Dark theme
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'junegunn/goyo.vim'                " Distraction-free writing
 Plug 'junegunn/vim-easy-align'          " Align text
+Plug 'lambdalisue/fern.vim'             " File explorer
 Plug 'lervag/wiki.vim'                  " Personal wiki
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }   " Intellisense
 Plug 'sheerun/vim-polyglot'             " Collection of syntaxes
@@ -64,11 +65,6 @@ let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_above_and_below = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
-" Netrw
-let g:netrw_banner = 0
-let g:netrw_list_hide= '.DS_Store'
-let g:netrw_liststyle = 3                   " Use tree style listing
-
 " Wiki
 let g:wiki_index_name = 'README'
 let g:wiki_root = '~/Documents/10-19 Personal/12 Notes'
@@ -82,6 +78,11 @@ let g:wiki_link_creation = {
 \       'url_transform': { _ -> strftime('%Y%m%d%H%M') },
 \   },
 \ }
+
+" fern
+let g:fern#default_exclude = '.DS_Store'
+let g:fern#default_hidden = 1
+let g:fern#renderer#default#leading = '   '
 
 " splitjoin
 let g:splitjoin_html_attributes_bracket_on_new_line = 1
@@ -173,7 +174,7 @@ nnoremap <silent> <Leader>n :nohlsearch<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nnoremap - :Explore<CR>
+nnoremap - :Fern . -reveal=%<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>c :BCommits<CR>
 nnoremap <silent> <Leader>C :Commits<CR>
