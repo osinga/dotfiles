@@ -22,7 +22,7 @@ brew install git
 brew install httpie
 brew install jq
 brew install node
-brew install postgresql
+brew install postgresql@15
 brew install the_silver_searcher
 brew install tldr
 brew install tmux
@@ -40,7 +40,6 @@ $(brew --prefix)/opt/fzf/install --all --no-bash --no-update-rc
 
 # Install
 brew install --cask 1password
-brew install --cask abstract
 brew install --cask appcleaner
 brew install --cask calibre
 brew install --cask firefox
@@ -55,7 +54,6 @@ brew install --cask raycast
 brew install --cask sf-symbols
 brew install --cask sketch
 brew install --cask slack
-brew install --cask soda-player
 brew install --cask spotify
 brew install --cask tableplus
 brew install --cask tor-browser
