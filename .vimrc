@@ -53,6 +53,8 @@ let g:coc_global_extensions = [
 \   'coc-eslint',
 \   'coc-json',
 \   'coc-tsserver',
+\   'coc-yaml',
+\   '@yaegassy/coc-tailwindcss3',
 \ ]
 
 " GitGutter
