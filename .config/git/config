@@ -1,8 +1,6 @@
 [user]
 	name = osinga
 	email = 6756723+osinga@users.noreply.github.com
-[core]
-	excludesFile = ~/.gitignore
 [fetch]
 	prune = true
 [init]

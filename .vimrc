@@ -148,7 +148,7 @@ augroup vimrc
     autocmd ColorScheme * call onedark#extend_highlight('Normal', { 'fg': { 'cterm16': 15 } })
 
     " Reload configuration files on update
-    autocmd BufWritePost .tmux.conf silent !tmux source-file %
+    autocmd BufWritePost .config/tmux/tmux.conf silent !tmux source-file %
     autocmd BufWritePost .vimrc source %
 
     " Save all buffers when losing focus
