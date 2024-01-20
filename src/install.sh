@@ -24,7 +24,7 @@ chflags hidden ~/src
 ################################################################################
 
 # General
-sudo softwareupdate -i -a           # Update App Store applications
+[[ ! -v CI ]] && sudo softwareupdate -i -a    # Update App Store applications
 
 # Specific
 source ~/src/brew.sh                # Install Homebrew and related components
