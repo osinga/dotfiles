@@ -15,7 +15,7 @@ npm install npm@latest -g           # Update to the latest version of npm
 npm update -g                       # Update all global packages
 
 # Vim
-vim +CocUpdate +PlugUpgrade +PlugUpdate +qall  # Update all Vim plugins
+vim +CocUpdate +PlugUpgrade +PlugUpdate +qall       # Update all Vim plugins
 
 # tmux
 ~/.tmux/plugins/tpm/bin/update_plugins all  # Update all tmux plugins

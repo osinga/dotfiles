@@ -4,13 +4,13 @@
 
 # Plugins
 plugins=(
-    git
-    vi-mode
+	git
+	vi-mode
 )
 
 # Settings
-export ZSH=~/.oh-my-zsh                                  # Set the folder path
-export ZSH_THEME=osinga                                  # Set the terminal theme
+export ZSH=~/.oh-my-zsh                             # Set the folder path
+export ZSH_THEME=osinga                             # Set the terminal theme
 
 
 
@@ -32,26 +32,28 @@ alias :q='exit'
 
 # JD navigation
 function cd() {
-    # If arg is "AC.ID.NN" go to NN folder
-    if [[ $1 =~ '^[0-9]{2}\.[0-9]{2}\.[0-9]{2}$' ]]; then
-        builtin cd ~/Documents/*/*/*/${1}*/
+	# If arg is "AC.ID.NN" go to NN folder
+	if [[ $1 =~ '^[0-9]{2}\.[0-9]{2}\.[0-9]{2}$' ]]; then
+		builtin cd ~/Documents/*/*/*/${1}*/
 
-    # If arg is "AC.ID" go to ID folder
-    elif [[ $1 =~ '^[0-9]{2}\.[0-9]{2}$' ]]; then
-        builtin cd ~/Documents/*/*/${1}*/
+	# If arg is "AC.ID" go to ID folder
+	elif [[ $1 =~ '^[0-9]{2}\.[0-9]{2}$' ]]; then
+		builtin cd ~/Documents/*/*/${1}*/
 
-    # If arg is "AC-AC" go to Area folder
-    elif [[ $1 =~ '^[0-9]{2}-[0-9]{2}$' ]]; then
-        builtin cd ~/Documents/${1}*/; ls -lh
+	# If arg is "AC-AC" go to Area folder
+	elif [[ $1 =~ '^[0-9]{2}-[0-9]{2}$' ]]; then
+		builtin cd ~/Documents/${1}*/;
+		ls -lh
 
-    # If arg is "AC" go to Category folder
-    elif [[ $1 =~ '^[0-9]{2}$' ]]; then
-        builtin cd ~/Documents/*/${1}*/; ls -lh
+	# If arg is "AC" go to Category folder
+	elif [[ $1 =~ '^[0-9]{2}$' ]]; then
+		builtin cd -- ~/Documents/*/${1}*/;
+		ls -lh
 
-    # Otherwise call `cd` normally
-    else
-        builtin cd "$@"
-    fi
+	# Otherwise call `cd` normally
+	else
+		builtin cd "$@"
+	fi
 }
 
 
