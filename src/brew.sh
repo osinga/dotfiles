@@ -41,7 +41,6 @@ $(brew --prefix)/opt/fzf/install --all --no-bash --no-update-rc
 # Install
 brew install --cask 1password
 brew install --cask appcleaner
-brew install --cask calibre
 brew install --cask firefox
 brew install --cask google-chrome
 brew install --cask imageoptim
