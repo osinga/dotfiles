@@ -116,9 +116,11 @@ set foldlevelstart=99               " Start with no folds closed
 set foldmethod=indent               " Fold based on indentation
 
 " Lines
+set display=lastline                " Show as much of the last line as possible
 set number                          " Show line numbers
 set relativenumber                  " Use relative numbers
 set signcolumn=yes                  " Always show the sign column
+set smoothscroll                    " Make scrolling work with screen lines
 
 " Search
 set hlsearch                        " Highlight all matches for previous search
