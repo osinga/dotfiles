@@ -85,4 +85,4 @@ brew install --cask font-sf-pro
 ################################################################################
 
 # Start
-brew services start postgresql
+brew services start postgresql@15
