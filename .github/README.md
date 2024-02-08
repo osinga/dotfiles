@@ -1,6 +1,6 @@
 # Dotfiles
 
-[![Test](https://github.com/osinga/dotfiles/workflows/Test/badge.svg)](https://github.com/osinga/dotfiles/actions?query=workflow%3ATest)
+[![Test](https://github.com/osinga/dotfiles/actions/workflows/test.yml/badge.svg)](https://github.com/osinga/dotfiles/actions/workflows/test.yml)
 
 My macOS dotfiles, set up as a [bare repository](https://www.atlassian.com/git/tutorials/dotfiles).
 
