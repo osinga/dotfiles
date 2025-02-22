@@ -21,6 +21,7 @@ brew install gh
 brew install git
 brew install httpie
 brew install jq
+brew install mailpit
 brew install node
 brew install postgresql@15
 brew install the_silver_searcher
@@ -41,17 +42,16 @@ $(brew --prefix)/opt/fzf/install --all --no-bash --no-update-rc
 # Install
 brew install --cask 1password
 brew install --cask appcleaner
+brew install --cask figma
 brew install --cask firefox
 brew install --cask google-chrome
 brew install --cask imageoptim
 brew install --cask insomnia
 brew install --cask karabiner-elements
 brew install --cask keyboard-maestro
-brew install --cask notion
 brew install --cask plex
 brew install --cask raycast
 brew install --cask sf-symbols
-brew install --cask sketch
 brew install --cask slack
 brew install --cask spotify
 brew install --cask tableplus
@@ -59,7 +59,6 @@ brew install --cask tor-browser
 brew install --cask transmission
 brew install --cask visual-studio-code
 brew install --cask whatsapp
-brew install --cask zoom
 brew install --cask zotero
 
 
@@ -85,4 +84,5 @@ brew install --cask font-sf-pro
 ################################################################################
 
 # Start
+brew services start mailpit
 brew services start postgresql@15
